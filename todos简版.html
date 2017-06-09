@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/vue.js" charset="utf-8"></script>
+    <style>
+        .warning {background: #ff0; color: #fff;}
+        .danger {background: #f00; color: #fff;}
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h2>minglei's todo list <span v-if='uncompleted' :class='uncompleted >2 ? "danger" : "warning"'>{{uncompleted}}</span></h2>
+        <input type="text" placeholder="what's your task?" @keyup.enter='addTodo($event)'>
+        <br>
+        <br>
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>任务名称</th>
+                    <th>完成情况</th>
+                    <th>状态</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(item,index) in filterTodos">
+                    <td>{{index+1}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.done}}</td>
+                    <td><input type="checkbox" v-model='item.done'></td>
+                    <td><a href="" @click.prevent='deleteTodo(index)'>删除</a></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <br>
+        <input type="checkbox" v-model="showAll"> 显示所有
+        <br>
+        已完成{{completed}} / 总数{{todos.length}}
+    </div>
+    <script>
+        var vm = new Vue({
+            el : "#app",
+            data : {
+                todos : [
+                    {name : '吃饭', done : true},
+                    {name : '睡觉', done : false},
+                    {name : '打魔兽', done : true},
+                ],
+                showAll : false
+            },
+            methods : {
+                addTodo : function(evt){
+                    var text = evt.target.value.trim();
+                    if (!text) {
+                        alert('名称不能为空');
+                        return;
+                    }
+                    //构造一个任务对象并push到todos中
+                    this.todos.push({name : text, done : false});
+                    evt.target.value = "";
+                },
+                deleteTodo : function(index){
+                    this.todos.splice(index,1);
+                }
+            },
+            computed : {
+                //根据todos和showAll得到一个新的数组
+                filterTodos : function(){
+                    var showAll = this.showAll;
+                    var arr = this.todos.filter(function(item){
+                        return !item.done || showAll
+                    });
+                    return arr;
+                },
+                //统计已完成
+                completed : function(){
+                    return this.todos.filter(function(item){return item.done}).length;
+                },
+                //统计未完成的
+                uncompleted : function(){
+                    return this.todos.filter(function(item){return !item.done}).length;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

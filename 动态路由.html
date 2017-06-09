@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/vue.js" charset="utf-8"></script>
+    <script src="js/vue-router.js"></script>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li><router-link to="/home">首页面</router-link></li>
+            <li><router-link to="/list">列表页面</router-link></li>
+        </ul>
+        <router-view></router-view>
+        <br><br>
+        <button type="button" @click="getNews">编程式路由</button>
+    </div>
+    <script>
+        var Home = {
+            template : "<h2>首页组件</h2>"
+        };
+        var List = {
+            template : `<div>
+                            <h2>列表页组件</h2>
+                            <ul>
+                                <li><router-link to='/detail/1'>第1条新闻--个人--</router-link></li>
+                                <li><router-link to='/detail/2'>第2条新闻--练习--</router-link></li>
+                                <li><router-link to='/detail/3'>第3条新闻--哈哈--</router-link></li>
+                            </ul>
+                        </div>`
+        };
+        var Detail = {
+            template : `<div>
+                            <h2>详情页组件</h2>
+                            <p>这是第{{this.$route.params.id}}条新闻</p>
+                        </div>`
+        };
+        var routes = [
+            {
+                path : '/home',
+                component : Home
+            },
+            {
+                path : '/list',
+                component : List
+            },
+            {
+                path : '/detail/:id',
+                component : Detail
+            },
+            {
+                path : '/',
+                redirect : '/home'
+            }
+        ];
+
+        var router = new VueRouter({
+            routes : routes
+        });
+
+        var vm = new Vue({
+            el : "#app",
+            data : {
+
+            },
+            router : router,
+            methods : {
+                getNews : function(){
+                    this.$router.push({path : '/detail/100'});
+                }
+            }
+        });
+    </script>
+</body>
+</html>

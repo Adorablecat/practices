@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/vue.js" charset="utf-8"></script>
+    <style>
+        .active {background: #f00; color: #fff;}
+    </style>
+</head>
+<body>
+    <div id="app">
+        <button type="button" @click="current='my-html'" :class="{active : current=='my-html' }">html</button>
+        <button type="button" @click="current='my-css'" :class="{active : current=='my-css' }">css</button>
+        <button type="button" @click="current='my-js'" :class="{active : current=='my-js' }">js</button>
+        <br>
+        <div>
+            <keep-alive>
+                <component :is="current"></component>
+            </keep-alive>
+        </div>
+    </div>
+    <script>
+        var vm = new Vue({
+            el : "#app",
+            data : {
+                current : 'my-html'
+            },
+            components : {
+                "my-html" : {
+                    template : "<div><h2>html标题</h2><p>html的内容</p></div>",
+                },
+                "my-css" : {
+                    template : "<div><h2>css标题</h2><p>css的内容</p></div>",
+                },
+                "my-js" : {
+                    template : "<div><h2>js标题</h2><p>js的内容</p></div>",
+                },
+            }
+        });
+    </script>
+</body>
+</html>

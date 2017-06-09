@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/vue.js" charset="utf-8"></script>
+    <style>
+        .box {width: 100px; height: 100px; background: #f00;}
+        .fade-enter-active,.fade-leave-active {transition: all 3s;}
+        .fade-enter,.fade-leave-active {opacity: 0;}
+    </style>
+</head>
+<body>
+    <div id="app">
+        <button type="button" @click="show=!show">toggle</button>
+        <br><br>
+        <transition name="fade"
+            @before-enter="beforeEnter"
+            @enter="enter"
+            @after-enter="afterEnter"
+            @enter-cancelled="enterCancelled"
+            @before-leave="beforeLeave"
+            @leave="leave"
+            @after-leave="afterLeave"
+            @leave-cancelled="leaveCancelled"
+        >
+            <div class="box" v-show="show" ref="box"></div>
+        </transition>
+    </div>
+    <script>
+        var vm = new Vue({
+            el : "#app",
+            data : {
+                show : false
+            },
+            methods : {
+                beforeEnter : function(){
+                    // alert('before enter');
+                },
+                enter : function(){
+                    // this.$refs.box.style.width = 0;
+                    // this.$refs.box.style.height = 0;
+                    // alert('enter');
+                },
+                afterEnter : function(){
+                    // this.$refs.box.style.width = "100px";
+                    // this.$refs.box.style.height = "100px";
+                    // alert('after enter');
+                },
+                enterCancelled : function(){
+                    // alert('enter cancelled');
+                },
+                beforeLeave : function(){
+                    //alert('before leave');
+                },
+                leave : function(){
+                    // alert('leave');
+                },
+                afterLeave : function(){
+                    // this.$refs.box.style.width = 0;
+                    // this.$refs.box.style.height = 0;
+                    // alert('after leave');
+                },
+                leaveCancelled : function(){
+                    // alert('leave cancelled');
+                },
+            }
+        });
+    </script>
+</body>
+</html>
