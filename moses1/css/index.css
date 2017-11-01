@@ -1,0 +1,364 @@
+@media only screen and (max-width: 1080px), only screen and (max-device-width: 1080px) {
+  /* line 2, reset.less */
+  html,
+  body {
+    font-size: 108px;
+  }
+}
+@media only screen and (max-width: 960px), only screen and (max-device-width: 960px) {
+  /* line 7, reset.less */
+  html,
+  body {
+    font-size: 96px;
+  }
+}
+@media only screen and (max-width: 800px), only screen and (max-device-width: 800px) {
+  /* line 12, reset.less */
+  html,
+  body {
+    font-size: 80px;
+  }
+}
+@media only screen and (max-width: 720px), only screen and (max-device-width: 720px) {
+  /* line 17, reset.less */
+  html,
+  body {
+    font-size: 72px;
+  }
+}
+@media only screen and (max-width: 640px), only screen and (max-device-width: 640px) {
+  /* line 22, reset.less */
+  html,
+  body {
+    font-size: 64px;
+  }
+}
+@media only screen and (max-width: 600px), only screen and (max-device-width: 600px) {
+  /* line 27, reset.less */
+  html,
+  body {
+    font-size: 60px;
+  }
+}
+@media only screen and (max-width: 540px), only screen and (max-device-width: 540px) {
+  /* line 32, reset.less */
+  html,
+  body {
+    font-size: 54px;
+  }
+}
+@media only screen and (max-width: 480px), only screen and (max-device-width: 480px) {
+  /* line 37, reset.less */
+  html,
+  body {
+    font-size: 48px;
+  }
+}
+@media only screen and (max-width: 414px), only screen and (max-device-width: 414px) {
+  /* line 42, reset.less */
+  html,
+  body {
+    font-size: 41.400000000000006px;
+  }
+}
+@media only screen and (max-width: 400px), only screen and (max-device-width: 400px) {
+  /* line 47, reset.less */
+  html,
+  body {
+    font-size: 40px;
+  }
+}
+@media only screen and (max-width: 375px), only screen and (max-device-width: 375px) {
+  /* line 52, reset.less */
+  html,
+  body {
+    font-size: 37.5px;
+  }
+}
+@media only screen and (max-width: 360px), only screen and (max-device-width: 360px) {
+  /* line 57, reset.less */
+  html,
+  body {
+    font-size: 36px;
+  }
+}
+@media only screen and (max-width: 320px), only screen and (max-device-width: 320px) {
+  /* line 62, reset.less */
+  html,
+  body {
+    font-size: 32px;
+  }
+}
+@media only screen and (max-width: 240px), only screen and (max-device-width: 240px) {
+  /* line 67, reset.less */
+  html,
+  body {
+    font-size: 24px;
+  }
+}
+/* line 72, reset.less */
+body,
+ul,
+li,
+h1,
+h2,
+h3,
+section,
+div,
+header,
+footer {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* line 73, reset.less */
+body {
+  font-family: "微软雅黑";
+}
+/* line 74, reset.less */
+h1,
+h2,
+h3 {
+  font-weight: normal;
+}
+/* line 75, reset.less */
+i,
+em {
+  font-style: normal;
+}
+/* line 76, reset.less */
+a {
+  text-decoration: none;
+}
+/* line 77, reset.less */
+img {
+  vertical-align: middle;
+}
+/*px--rem*/
+/* 设计稿的 1/10 */
+/*布局 */
+/* line 95, reset.less */
+.flex {
+  display: flex;
+  justify-content: space-between;
+  /*两商对齐*/
+  align-items: center;
+  /*垂直居中*/
+}
+/*头部的样式*/
+/* line 4, index.less */
+.load {
+  width: 100%;
+  height: 100%;
+  background-color: #f3eeee;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index:999;
+  display: none;
+}
+/* line 11, index.less */
+.load .logo {
+  width: 3.66666667rem;
+  height: 3.6rem;
+  background: url(../img/moseslogo.png) no-repeat;
+  background-size: 3.66666667rem 3.6rem;
+  position:absolute;
+  top:1.5rem;
+  left:50%;
+  margin-left:-1.8rem;
+  -webkit-animation: loading 3s infinite;
+	animation: loading 3s infinite
+}
+.load .percent {
+	font-size:.56rem;
+	font-family: simsun, serif;
+	text-align:center;
+	margin-top:6.23rem ;
+}
+.load .content {
+	font-size:.46rem;
+	text-align:center;
+	color:#2f2f2f;
+	margin-top: 0.31rem;
+}
+.load .papa {
+  width: 4.3rem;
+  height: 2.1rem;
+  background: url(../img/moses.png) no-repeat ;
+  background-size: 4.3rem 2.1rem;
+  position:absolute;
+  bottom:4.85rem;
+  left:50%;
+  margin:-2.15rem;
+  /*-webkit-animation: loading 3s infinite;
+	animation: loading 3s infinite*/
+}
+.load  .btn {
+	overflow: hidden;
+	width:100%;
+	height:auto;
+}
+.btn .roll {
+	width: .8rem;
+	height: .8rem;
+	border: 1px solid #545454;
+	border-radius: 50%;
+	position:absolute;
+	bottom: 1.45rem;
+	left: 50%;
+	margin-left: -.4rem
+}
+/*.roll:after {
+	width: .31rem;
+	height: .31rem;
+	border-left: 1px solid #545454;
+	border-bottom: 1px solid #545454;
+	position: absolute;
+	background-color: red;
+	left: .12rem;
+	top: .09rem;
+	-webkit-transform: rotate(-45deg);
+	transform: rotate(-45deg)
+}*/
+.btn .roll::after {
+    width: .2rem;
+    height: .2rem;
+    border-left: 1px solid #545454;
+    border-bottom: 1px solid #545454;
+    left: .12rem;
+    top: .09rem;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+.tip {
+	width:100%;
+	color:#666;
+	font-size:.37rem;
+	position:absolute;
+	left:0;
+	bottom:.75rem;
+	text-align:center;
+}
+
+video {
+	position:absolute;
+	top:0;
+	left:0;
+	width;100%;
+	height: 100%;
+/*	border:1px solid red;*/
+display: none;
+}
+
+/*end*/
+.end {
+	background-color: #9ACCCD;
+	width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  /*display:none;*/
+}
+.end .top {
+	width:7.1rem;
+	height:2.5rem;
+	background:url(../img/LOGO.png) no-repeat;
+	-webkit-background-size: 7.1rem 2.5rem;
+	background-size: 7.1rem 2.5rem;
+	margin: 3.42rem auto 0;
+	/*margin-top: 257px;*/
+}
+.end .middle {
+	width:1.16rem;
+	height:3.97rem;
+	background:url(../img/call.png)no-repeat;
+	-webkit-background-size: 1.16rem 3.97rem;
+	background-size: 1.16rem 3.97rem;
+	animation-delay:.2s;
+	-webkit-animation-delay:.2s;
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin:-.985rem 0 0 -.58rem;
+}
+.intersperse,.join,.share {
+	position:absolute;
+	left:50%;
+}
+.intersperse {
+	width:6.4rem;
+	height:.61rem;
+	background: url(../img/点缀.png) no-repeat;
+	-webkit-background-size: 6.4rem .61rem;
+	background-size: 6.4rem .61rem;
+	bottom:3.6rem;
+	margin-left: -3.2rem;
+	animation-delay:.3s;
+	-webkit-animation-delay:.3s;
+}
+.join {
+	width:4.2em;
+	height:.95rem;
+	background:url(../img/立即参加.png) no-repeat;
+	-webkit-background-size: 4.2rem .95rem;
+	background-size: 4.2rem .95rem;
+	bottom:2.7rem;
+	margin-left:-2.1rem;
+	animation-delay:.5s;
+-webkit-animation-delay:.5s;
+}
+.share {
+	width:4.2em;
+	height:.95rem;
+	background: url(../img/分享给朋友.png) no-repeat;
+	-webkit-background-size: 4.2rem .95rem;
+	background-size: 4.52rem .95rem;
+	bottom:1.5rem;
+	margin-left:-2.1rem;
+	animation-delay:.9s;
+-webkit-animation-delay:.9s;
+}
+.sf{
+	width:5.5rem;
+	height:5.2rem;
+	background: url(../img/share.png) no-repeat;
+	-webkit-background-size: 5.5rem 5.2rem;
+	background-size: 5.5rem 5.2rem;
+	position:absolute;
+	top:0;
+	right:.4rem;
+	display: none;
+}
+
+@-webkit-keyframes loading {
+	0%,
+	100%,
+	50%,
+	80% {
+		-webkit-transform: translateY(0);
+		transform: translateY(0)
+	}
+	20%,
+	60% {
+		-webkit-transform: translateY(-10px);
+		transform: translateY(-10px)
+	}
+}
+
+@keyframes loading {
+	0%,
+	100%,
+	50%,
+	80% {
+		-webkit-transform: translateY(0);
+		transform: translateY(0)
+	}
+	20%,
+	60% {
+		-webkit-transform: translateY(-10px);
+		transform: translateY(-10px)
+	}
+}
