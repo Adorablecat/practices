@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvas绘制序列帧动画</title>
+	<style>
+		canvas{
+			border:1px solid blue;
+
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			//1. 得到canvas
+			var cvs = document.getElementById('cvs');
+			var ballX = 100;    /*小球的圆心横坐标*/
+			var ballY = 100;    /*小球的圆心纵坐标*/
+			var ballStep = 3;   /*小球运动的步长*/
+			var ballAngle = Math.random()*2*Math.PI;   //小球运动的角度，是与x轴正向的夹角
+			// ballAngle = 0.2*Math.PI;
+
+			//2. 设置画布类型，得到渲染上下文
+			if(cvs.getContext){  //能力检测
+				var cvs_context = cvs.getContext('2d');
+
+				//绘制图片
+				var img = document.createElement('img');
+				img.src = 'images/12/DMMban.png';
+				img.onload = function(){
+					//绘制第一行的第一个小哥哥
+					cvs_context.drawImage(img, 40*0, 0, 40, 65, 100, 100, 40*3, 65*3);
+
+					//绘制第一行的第四个小哥哥
+					cvs_context.drawImage(img, 40*3, 0, 40, 65, 300, 100, 40*3, 65*3);
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<canvas id="cvs" width="600" height="600">您的浏览器不支持canvas</canvas>
+</body>
+</html>

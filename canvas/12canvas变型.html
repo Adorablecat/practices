@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvas变型</title>
+	<style>
+		*{margin:0;padding:0}
+		canvas{
+			border:1px solid orange;
+			margin:20px auto 0;
+			display:block;   /*canvas默认为行内块,同img*/
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			//1. 得到canvas
+			var cvs = document.getElementById('cvs');
+			var ballX = 100;    /*小球的圆心横坐标*/
+			var ballY = 100;    /*小球的圆心纵坐标*/
+			var ballStep = 3;   /*小球运动的步长*/
+			var ballAngle = Math.random()*2*Math.PI;   //小球运动的角度，是与x轴正向的夹角
+			// ballAngle = 0.2*Math.PI;
+
+			//2. 设置画布类型，得到渲染上下文
+			if(cvs.getContext){  //能力检测
+				var cvs_context = cvs.getContext('2d');
+
+
+				// 在(100, 100)的位置绘制绿色矩形
+				cvs_context.fillStyle = 'green';
+				cvs_context.fillRect(100, 100, 100, 100);
+
+				//在变型前，保存坐标轴
+				cvs_context.save();
+
+				// 坐标轴向X轴正向移动200px 
+				cvs_context.translate(200, 0);
+
+				// 在(100, 100)的位置绘制绿色矩形
+				cvs_context.fillStyle = 'green';
+				cvs_context.fillRect(100, 100, 100, 100);
+
+				// 在(150, 150)的位置绘制圆形
+				cvs_context.beginPath();
+				cvs_context.arc(150, 150, 50, 0, 2*Math.PI, true);
+				cvs_context.closePath();
+				cvs_context.stroke();
+
+				// 将坐标轴恢复原状(将坐标轴恢复到上次save的位置
+				cvs_context.restore();
+
+				// 在(150, 150)的位置绘制圆形
+				cvs_context.beginPath();
+				cvs_context.arc(150, 150, 50, 0, 2*Math.PI, true);
+				cvs_context.closePath();
+				cvs_context.stroke();
+
+				// 在(500, 100)的位置绘制矩形边框
+				cvs_context.fillRect(500, 100, 100, 100);
+
+				//在变型前保存坐标轴，以便恢复
+				cvs_context.save();
+
+				// 将坐标轴转30deg
+				cvs_context.rotate(30*2*Math.PI/360);
+
+				// 在(500, 100)的位置绘制矩形边框
+				cvs_context.fillRect(500, 100, 100, 100);
+
+				// 将坐标轴恢复
+				cvs_context.restore();
+
+				// 在(500, 100)的位置绘制矩形边框
+				cvs_context.lineWidth = 4;
+				cvs_context.strokeRect(500, 100, 100, 100);
+
+				// 将坐标轴x轴和y轴都缩都放到0.5倍。
+				cvs_context.scale(0.5, 0.5);
+
+				// 在(100, 100)的位置绘制矩形边框。
+				cvs_context.strokeRect(100, 100, 100, 100);
+			}
+		}
+	</script>
+</head>
+<body>
+	1. 在(100, 100)的位置绘制绿色矩形 <br><br>
+
+2. 坐标轴向X轴正向移动200px <br><br>
+
+3. 在(100, 100)的位置绘制绿色矩形 <br><br>
+
+4. 在(150, 150)的位置绘制圆形 <br><br>
+
+5. 将坐标轴恢复原状 <br><br>
+
+6. 在(150, 150)的位置绘制圆形 <br><br>
+
+7. 在(500, 100)的位置绘制矩形边框 <br><br>
+
+7. 将坐标轴转30deg <br><br>
+
+8. 在(500, 100)的位置绘制矩形边框 <br><br>
+
+9. 将坐标轴恢复 <br><br>
+
+10. 将坐标轴x轴和y轴都缩都放到0.5倍。 <br><br>
+
+11. 在(100, 100)的位置绘制矩形边框。 <br><br>
+
+<canvas id="cvs" width="1000" height="600">您的浏览器不支持canvas</canvas>
+</body>
+</html>

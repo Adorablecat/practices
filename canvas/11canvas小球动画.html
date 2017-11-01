@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvas小球动画</title>
+	<style>
+		*{margin:0;padding:0}
+		canvas{
+			border:1px solid orange;
+			margin:20px auto 0;
+			display:block;   /*canvas默认为行内块,同img*/
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			//1. 得到canvas
+			var cvs = document.getElementById('cvs');
+			var ballX = 100;    /*小球的圆心横坐标*/
+			var ballY = 100;    /*小球的圆心纵坐标*/
+			var ballStep = 3;   /*小球运动的步长*/
+			var ballAngle = Math.random()*2*Math.PI;   //小球运动的角度，是与x轴正向的夹角
+			// ballAngle = 0.2*Math.PI;
+
+			//2. 设置画布类型，得到渲染上下文
+			if(cvs.getContext){  //能力检测
+				var cvs_context = cvs.getContext('2d');
+				var rectX = 100;
+				var timer;   //定时器
+
+				//3.使用canvas的渲染上下文绘制图形
+				
+				//绘制小球
+				cvs_context.beginPath();
+				cvs_context.arc(ballX, ballY, 10, 0, 2*Math.PI, true);
+				cvs_context.closePath();
+				cvs_context.fill();
+
+
+				//每隔一段时间，，让小球的圆心横坐标逐渐增加
+				setInterval(function(){
+					//全屏清除
+					cvs_context.clearRect(0, 0, cvs.width, cvs.height);
+
+					// ballX+=ballStep;
+					// x轴的步长分量为：ballStep*Math.cos(ballAngle)
+					// y轴的步长分量为：ballStep*Math.sin(ballAngle)
+					//目前小球所在的x轴坐标为：ballX+ballStep*Math.cos(ballAngle)
+					//目前小球所在的y轴坐标为：ballY+ballStep*Math.sin(ballAngle)
+					ballX = ballX+ballStep*Math.cos(ballAngle);
+					ballY = ballY+ballStep*Math.sin(ballAngle);
+
+					//如果小球撞下墙:圆心的纵坐标+半径>=canvas的高度
+					if(ballY+10>=cvs.height){
+						//反弹后的角度为2*Math.PI-ballAngle
+						ballAngle = 2*Math.PI-ballAngle;
+						ballY = cvs.height-10;
+					}else if(ballY<=10){  //如果小球撞上墙
+						ballAngle = 2*Math.PI-ballAngle;
+						ballY=10;
+					}
+
+					//如果小球撞右墙:小球的圆心横坐标+半径>=canvas的宽度
+					if(ballX+10>=cvs.width){
+						ballAngle = Math.PI-ballAngle;
+						ballX = cvs.width-10;
+					}else if(ballX<=10){    //如果小球撞左墙
+						ballAngle = Math.PI-ballAngle;
+						ballX=10;
+					}
+
+					//绘制小球
+					cvs_context.beginPath();
+					cvs_context.arc(ballX, ballY, 10, 0, 2*Math.PI, true);
+					cvs_context.closePath();
+					cvs_context.fill();
+				}, 10);
+			}
+			
+		}
+	</script>
+</head>
+<body>
+	<canvas id="cvs" width="1000" height="600">您的浏览器不支持canvas</canvas>
+</body>
+</html>

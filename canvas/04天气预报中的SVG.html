@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>天气预报中的SVG</title>
+	<style>
+		*{margin:0;padding:0}
+		svg{
+			border:1px solid blue;
+			width:680px;
+			height: 70px;
+			margin:100px auto 0;
+			display:block;
+		}
+	</style>
+</head>
+<body>
+	<svg xmlns="http://www.w3.org/2000/svg">
+		<circle cx="43" cy="34" r="5" fill="#f68227"></circle>
+		<circle cx="128" cy="9" r="5" fill="#f68227"></circle>
+		<circle cx="213" cy="9" r="5" fill="#f68227"></circle>
+
+		<!-- <polyline points="43 34 128 9 213 9" fill="none" stroke="#f68227" stroke-width="2"></polyline> -->
+		<!-- <path d="M 43 34 L 128 9 L 213 9" fill="none" stroke="#f68227" stroke-width="2"></path> -->
+		<path d="M 43 34 L 128 9 l 85 0" fill="none" stroke="#f68227" stroke-width="2"></path>
+	</svg>
+</body>
+</html>

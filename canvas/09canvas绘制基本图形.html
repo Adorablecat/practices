@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvas绘制基本图形</title>
+	<style>
+		*{margin:0;padding:0}
+		canvas{
+			border:1px solid orange;
+			margin:20px auto 0;
+			display:block;   /*canvas默认为行内块,同img*/
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			//1. 得到canvas
+			var cvs = document.getElementById('cvs');
+
+			//2. 设置画布类型，得到渲染上下文
+			if(cvs.getContext){  //能力检测
+				var cvs_context = cvs.getContext('2d');
+
+				//3.使用canvas的渲染上下文绘制图形
+				
+				//填充矩形
+				cvs_context.fillStyle = 'skyblue';
+				cvs_context.fillRect(100, 100, 100, 100);  //自带开启新路径
+
+				//描边矩形
+				cvs_context.strokeStyle = 'green';  //描边的颜色
+				cvs_context.lineWidth = 5;    //描边的宽度
+				cvs_context.strokeRect(300, 100, 100, 100);  //自带开启新路径
+
+				// 清除矩形
+				cvs_context.clearRect(120, 120, 60, 60);    //自带开启新路径
+
+				//画线段
+				cvs_context.beginPath();    //开启新路径
+				cvs_context.moveTo(500, 100);  //抬起画笔，移动到指定的位置，从这个地方起笔
+				
+				// cvs_context.lineTo(500, 100);  // 如果没有写moveTo，那么第一个lineTo会被认为是moveTo。
+				cvs_context.lineTo(500, 200);   //从画笔停留的位置，画线段到指定的位置
+				//描边
+				cvs_context.strokeStyle = 'blue';
+				cvs_context.lineWidth = 3;
+				cvs_context.stroke();
+
+				//画三角形
+				cvs_context.beginPath();    //开启新路径
+				cvs_context.moveTo(600, 100);
+				// cvs_context.lineTo(600, 100);   //如果没有写moveTo，第一个lineTo会作为moveTo
+				cvs_context.lineTo(650, 200);
+				cvs_context.lineTo(550, 200);
+				cvs_context.closePath();    //在起始点和结束点之间划线，封闭路径
+
+				//设置描边样式
+				cvs_context.strokeStyle = '#f60';
+				cvs_context.fill();    //填充
+				cvs_context.lineWidth = 6;
+				cvs_context.strokeStyle = 'rgba(255, 100, 0, .5)';
+				cvs_context.stroke();   //描边
+
+				// 画弧度
+				cvs_context.beginPath();
+				cvs_context.arc(150, 400, 100, 0, Math.PI, true);
+				cvs_context.lineWidth = 3;
+				cvs_context.strokeStyle = '#f60';
+				cvs_context.stroke();
+
+				cvs_context.beginPath();
+				cvs_context.arc(300, 400, 100, 0, Math.PI, false);
+				cvs_context.stroke();
+
+				//填充的半圆
+				cvs_context.beginPath();
+				cvs_context.arc(600, 400, 100, 0, Math.PI, true);
+				cvs_context.fill();
+
+				// 绘制图片
+				cvs_context.beginPath();
+				var img = document.createElement('img');   //创建元素（孤儿元素）
+				img.src = 'images/07/tainiu.jpg';
+
+				//当图片加载完毕的时候，再绘制
+				img.onload = function(){
+					cvs_context.drawImage(img, 770, 140);
+				}
+
+				//绘制文字
+				cvs_context.beginPath();
+				//描边文字
+				cvs_context.font = '30px "微软雅黑"';
+				cvs_context.lineWidth = 1;
+				cvs_context.strokeText('泰牛程序员', 790, 440);
+				cvs_context.fillStyle = 'green';
+				cvs_context.fillText('泰牛程序员', 790, 440)
+				
+			}
+			
+		}
+	</script>
+</head>
+<body>
+	<canvas id="cvs" width="1000" height="600">您的浏览器不支持canvas</canvas>
+</body>
+</html>

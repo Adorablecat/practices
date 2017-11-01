@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>SVG动画</title>
+</head>
+<body>
+	<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="400">
+		<rect x="100" y="100" width="100" height="100" fill="orange">
+			<animate attributeName="x" attributeType="XML" from="100" to="1000" dur="4s" fill="freeze" repeatCount="indefinite" />
+			<animate attributeName="fill" attributeType="XML" from="orange" to="blue" dur="12s" fill="freeze" />
+		</rect>
+	</svg>
+
+	<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="400">
+		<rect x="100" y="100" width="100" height="100" fill="orange">
+			<!-- 第一个动画开始的事件：0s和第二个动画结束的事件 -->
+			<animate id="animate1" attributeName="x" attributeType="XML" from="100" to="1000" dur="4s" fill="freeze" begin="0s;animate2.end+2s" /> 
+			
+			<!-- 第二个动画开始的事件：第一个动画结束的事件 -->
+			<animate id="animate2" attributeName="x" attributeType="XML" from="1000" to="100" dur="4s" fill="freeze" begin="animate1.end+2s" />
+		</rect>
+	</svg>
+</body>
+</html>

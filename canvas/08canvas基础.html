@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvas基础</title>
+	<style>
+		canvas{
+			border:1px solid blue;
+			/*
+			错误的做法：
+			 width: 1000px;
+			height: 500px;*/
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			//第一步：得到canvas
+			var cvs = document.getElementById('cvs');
+
+			cvs.width=1000;
+			cvs.height=500;
+			
+			//错误的做法：
+			// cvs.style.width = '1000px';
+			// cvs.style.height="500px";
+
+			//第二步：设置画布的类型，得到渲染上下文。
+			if(cvs.getContext){  //能力检测
+				var cvs_context = cvs.getContext('2d');    //设置画布的类型为2d||webGL(3D)
+				//canvas的API不是定义在本身的， 而是定义在它的渲染上下文上的。我们可以认为渲染上下文就是画布的画笔。
+				
+				//第三步：使用canvas的渲染上下文绘制图形。
+				//在100 100的位置，画一个矩形
+				cvs_context.fillStyle = 'green';
+				cvs_context.fillRect(100, 100, 100, 100);
+
+				//在150 150的地方绘制一个100*100的矩形
+				cvs_context.fillStyle = 'rgba(0, 0, 255, 0.5)';
+				cvs_context.fillRect(150, 150, 100, 100);
+			}
+				
+		}
+	</script>
+</head>
+<body>
+	<canvas id="cvs" width="1000" height="500">您的浏览器不支持canvas</canvas>
+</body>
+</html>

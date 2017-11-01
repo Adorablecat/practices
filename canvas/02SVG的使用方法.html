@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>SVG的使用方法</title>
+	<style>
+		div{
+			width: 200px;
+			height: 200px;
+			background: url('images/01/shiliangtu.svg');
+		}
+	</style>
+</head>
+<body>
+	1.直接用浏览器打开；<br><br>
+2.用img的src属性调用；<br><br>
+3.用作盒子的背景图；<br><br>
+4.用svg标签调用。<br><br>
+
+<img src="images/01/shiliangtu.svg" alt="">
+
+<div></div>
+
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200">
+	<!--Face-->
+	<circle cx="100" cy="100" r="90" fill="#39F" />
+	<!--Eyes-->
+	<circle cx="70" cy="80" r="20" fill="white" />
+	<circle cx="130" cy="80" r="20" fill="white" />
+	<circle cx="65" cy="75" r="10" fill="black" />
+	<circle cx="125" cy="75" r="10" fill="black" />
+	<!--smile-->
+	<path d="M 50 140 A 60 60 0 0 0 150 140" stroke="white" stroke-width="3" fill="none" />
+</svg>
+
+</body>
+</html>

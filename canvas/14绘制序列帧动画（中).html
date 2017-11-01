@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvas绘制序列帧动画</title>
+	<style>
+		canvas{
+			border:1px solid blue;
+
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			//1. 得到canvas
+			var cvs = document.getElementById('cvs');
+			var col = 0;   //小哥哥所在的列
+
+			//2. 设置画布类型，得到渲染上下文
+			if(cvs.getContext){  //能力检测
+				var cvs_context = cvs.getContext('2d');
+
+				//绘制图片
+				var img = document.createElement('img');
+				img.src = 'images/12/DMMban.png';
+				img.onload = function(){
+					//绘制第一行的第一个小哥哥
+					cvs_context.drawImage(img, 40*0, 0, 40, 65, 100, 100, 40*3, 65*3);
+
+					
+
+					//每隔一段时间，变化小哥哥的造型
+					setInterval(function(){
+						//全屏的清除
+						cvs_context.clearRect(0, 0, cvs.width, cvs.height);
+
+						col++;
+						if(col>3){
+							col = 0;
+						}
+
+						cvs_context.drawImage(img, 40*col, 0, 40, 65, 100, 100, 40*3, 65*3);
+					}, 100);
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<canvas id="cvs" width="600" height="600">您的浏览器不支持canvas</canvas>
+</body>
+</html>

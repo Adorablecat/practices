@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>SVG基本图形</title>
+	<style>
+		*{margin:0;padding:0}
+		svg{
+			/*width: 1300px;
+			height: 700px;*/
+			border:2px solid blue;
+			margin:20px auto 0;
+			display:block;  /*svg和img一样，默认是行内块*/
+		}
+		img{
+			width:;
+			height:;
+		}
+	</style>
+</head>
+<body>
+	
+	<!-- <img src="" alt="" width="" height=""> -->
+	<!-- xmlns  表示xml name space 命名空间 为了解决名字冲突的问题，可以认为是固定的写法 -->
+	<svg xmlns="http://www.w3.org/2000/svg" width="1300" height="700">
+		<!-- 在xml中，标签写为双标签可以，也可以写为单标签。若果写为单标签，一定要自封闭 -->
+		
+		<!-- 矩形 -->
+		<rect x="100" y="100" width="200" height="200" rx="20" ry="20" fill="#3399ff" stroke="orange" stroke-width="5" />
+
+		<!-- 圆形 -->
+		<circle cx="400" cy="200" r="50" fill="#3399ff" stroke="orange" stroke-width="5" />
+
+		<!-- 椭圆 -->
+		<ellipse cx="650" cy="200" rx="150" ry="50" fill="#3399ff" stroke="orange" stroke-width="5" />
+
+		<!-- 画线段 -->
+		<line x1="900" y1="100" x2="1000" y2="200" stroke="orange" stroke-width="3" />
+
+		<!-- 多条线 -->
+		<polyline points="100 400 300 400 300 600 100 500" fill="none" stroke="orange" stroke-width="3" />
+
+		<!-- 多边形 -->
+		<polygon points="400 400 700 400 800 600 500 500" fill="none" stroke="orange" stroke-width="3" />
+
+		<!-- 用多边形来画矩形（特殊的多边形） -->
+		<polygon points="900 400 1000 400 1000 500 900 500" fill="none" stroke="orange" stroke-width="3" />
+
+		<!-- 画线段 -->
+		<!-- <line x1="1100" y1="400" x2="1200" y2="400" stroke="orange" stroke-width="3" /> -->
+		<!-- <polyline points="1100 400 1200 400" stroke="orange" stroke-width="3" /> -->
+		<path d="M 1100 400 L 1200 400" stroke="orange" stroke-width="3" />
+		<!-- M表示抬起画笔，移动到指定的位置，L从画笔停留的位置画线段到指定的位置 -->
+
+		<!-- <path d="M 1100 500 L 1200 500" stroke="orange" stroke-width="3" /> -->
+		<path d="M 1100 500 l 100 0" stroke="orange" stroke-width="3" />
+
+
+
+
+
+	</svg>
+
+</body>
+</html>
