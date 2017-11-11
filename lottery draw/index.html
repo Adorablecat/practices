@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>年会抽奖翻翻乐</title>
+	<style type="text/css">
+		html,body{height: 100%;}
+		html,body,figure,p{margin: 0;padding: 0;}
+		ul,li{list-style: none;padding: 0;margin:0;}
+		.topNaver{width: 100%;height: 50px;position: fixed;top: 0;left: 0;line-height: 50px;color: #fff;background: #1eb4c5;z-index: 9;overflow: hidden;min-width: 1024px;}
+		.topNaver span{display: inline-block;text-align: center;}
+		.topNaver .list{float: left; width: 12%;}
+		.topNaver .title{float: left;width: 88%;}
+		.mainWrap{width: 100%;height: 100%;overflow: hidden;position: relative;margin-top: 50px;min-width: 1024px;}
+		.bingoWrap{
+			position: fixed;top: 50px;left: 0;overflow-x: hidden; overflow-y: auto;width: 12%;height: 100%;border-right: 2px solid #1eb4c5;
+		}
+		.bingoWrap .luckyList{width: 100%;}
+		.bingoWrap .luckyList p{width: 100%;height: 25px;background: #eee;margin-bottom: 2px;text-align: center;line-height: 25px;font-size: 14px;}
+		.bingoWrap .clearBtns{width: 100%;margin: 100px 0 20px 0;text-align: center;}
+		.bingoWrap .clearBtns span{
+			display: inline-block;width: 60%;height: 28px;line-height: 28px;color: #fff;background: #1eb4c5;text-align: center;border-radius: 5px;cursor: pointer;font-size: 14px;margin-bottom: 15px;
+		}
+		.bingoWrap .clearBtns p{color: #1eb4c5;font-size: 12px;}
+		.bingoWrap .clearBtns .graybg{background: #aaa;}
+		.cardWrap{float: right;width: 88%;position: relative;overflow: hidden;}
+
+		.card-ul{margin-right: -20px;overflow: hidden;margin-left: 20px;margin-bottom: 500px;}
+		.card-container{
+			width: 0;height: 0px;position: relative;perspective: 800px;float: left;margin-right: 20px;margin-top: 20px;box-shadow: 5px 5px 5px #aaa;background: url('img/bg2017.png');cursor: pointer;opacity: 0;display: none;
+		}
+		.card-container.coverRed:after{content: '';position: absolute;top: 0;right: 0;width: 60px;height: 60px;background: url('img/list/coverred.png') no-repeat;background-position: center;background-size: cover;-webkit-transform: rotate(-25deg);-moz-transform: rotate(-25deg);transform: rotate(-25deg);}
+		.card-container .thisTxt{display: block;color: #fff;text-align: center;position: absolute;top: 0;left: 0;background: rgba(0, 0, 0, 0.6);width: 100%;height: 90px;padding-top: 60px;}
+		.card-one{
+			width:100%;height:100%;
+			-webkit-transform-style: preserve-3d;
+			-moz-transform-style: preserve-3d;
+			transform-style: preserve-3d;
+			-webkit-transition: transform 1.5s;
+			-moz-transition: transform 1.5s;
+			transition: transform 1.5s;
+		}
+		.card-one figure{
+		  display: block;
+		  position: absolute;
+		  width: 100%;
+		  height: 100%;
+		  backface-visibility: hidden;
+		}
+		.card-one .front{background: url("img/cover.jpeg") no-repeat;}
+		.card-one .back{background: #eee; transform: rotateY( 180deg );text-align: center;position: relative;}
+		.card-one .back img{width: 107px;height: 150px;border: none;}
+		.card-one .back p{text-align: center;line-height: 30px;font-size: 18px;margin: 0;margin-top: 10px;position: absolute;bottom: 0;left: 0;background: rgba(0, 0, 0, 0.6);width: 100%;color: #fff;}
+		.card-one.flipped{
+			transform: rotateY( 180deg );
+		}
+		.startBg{position: absolute;top: 50%;left: 50%;background: url('img/newyear.png') no-repeat;width: 500px;height: 500px;background-position: center;background-size: cover;margin-top: -250px;margin-left: -12%;}
+	</style>
+	<script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+</head>
+<body>
+	<div class="topNaver"><span class="list">已抽中名单</span><span class="title">总参与人数：<b class="totalNum"></b>（  公平性核对可以在抽完后翻开全部查看，欢迎review代码 ）</span></div>
+	<div class="mainWrap">
+		<div class="bingoWrap">
+			<div class="luckyList"></div>
+			<div class="clearBtns">
+				<span class="startGame">开始抽奖</span>
+				<span class="reloadGame">刷新页面</span>
+				<span class="allUncover">全部翻开</span>
+				<span class="clearAll">恢复厂设</span>
+				<p class="version">ver0.0.2</p>
+			</div>
+		</div>
+		<div class="cardWrap">
+			<ul class="card-ul"></ul>
+		</div>
+		<div class="startBg"></div>
+	</div>
+	
+
+</body>
+<script>
+	var memberArray=[
+	{name:"james",num:"F0000",img:"img/list/male.jpeg"},
+	{name:"tom",num:"F0001",img:"img/list/male.jpeg"},
+	{name:"lily",num:"F0002",img:"img/list/male.jpeg"},
+];
+$(function(){
+		var card_one,doneList = [];
+		var l = memberArray.length;
+		var hoverTxt=[
+			"猜我叫什么",
+			"求小主翻拍",
+			"敢点试试",
+			"点我旁边的",
+			"劝君要雨露均沾呦",
+			"敢不敢闭着眼点",
+			"我暗恋哥(捂脸)",
+			"我要...你翻开我",
+			"鼠标别动了!!,使劲点!",
+			"别点我，我会炸",
+			"还记得昨晚请你的大保健么",
+			"我不要奖,要名分",
+			"呵呵哒，我在乎奖品么",
+			"翻开我，美你一脸浆糊"
+			];
+		$(".cardWrap").find(".totalNum").text(memberArray.length);
+		// 读本地存储 追加列表
+		if(!!window.localStorage.getItem("doneList")){
+			if(window.localStorage.getItem("doneList").indexOf(",") > -1){
+				doneList = window.localStorage.getItem("doneList").split(",");	
+			}else{
+				doneList = window.localStorage.getItem("doneList").split();
+			}
+			for(var i = 0; i < doneList.length; i++){
+				$(".bingoWrap").find('.luckyList').append("<p class='luckyName'>"+doneList[i]+"</p>");
+			}
+			// console.log(doneList);	
+		}		
+		// 卡片随机追加
+		for(var i = 0, lengths = memberArray.length; i < lengths; i++){
+			var j = Math.floor(Math.random() * l);
+			card_one = "<li class='card-container canhover'><div class='card-one'><figure class='front'></figure><figure class='back'><img src='"+memberArray[j].img+"'/><p class='luckyName'>"+memberArray[j].name+"</p></figure></div></li>";
+			$(".card-ul").append(card_one);
+			// console.log(memberArray.length);
+			memberArray.splice(j,1);//渲染过后删除
+			l--;
+		}
+		// hover显示
+		$(".card-container").hover(function() {
+			var thisTxt = hoverTxt[Math.floor(Math.random()*hoverTxt.length)];
+			$(this).append("<span class='thisTxt'>"+thisTxt+"</span>");
+		}, function() {
+			$(this).find('.thisTxt').remove();
+		});
+		// 卡片点击效果
+		$(".card-container").on('click', function(event) {
+			var luckyName = $(this).find(".luckyName").clone();
+			var luckyNameTxt = $(this).find(".luckyName").text();
+			$(this).off('mouseenter mouseleave');
+			$(this).find('.thisTxt').remove();
+			$(this).find('.card-one').addClass("flipped");
+			setTimeout(function(){
+				$(".bingoWrap").find('.luckyList').append(luckyName);
+			},500);
+			doneList.push(luckyNameTxt);//抽中数组追加抽中
+			window.localStorage.setItem("doneList",doneList.join(","));//以字符串形式传递
+		});
+		// 抽取过的翻过面
+		if(!!window.localStorage.getItem("doneList")){
+			$(".card-container").each(function(i,el){
+				for(var j = 0 ; j < doneList.length; j++){
+					if($(el).find(".luckyName").text() == doneList[j]){
+						$(el).off('mouseenter mouseleave click');
+						$(el).find('.card-one').addClass("flipped coverRed");
+						$(el).addClass("coverRed");
+					}
+				}
+			})
+		}
+		// 清除本地数据
+		$(".clearBtns").find(".clearAll").on('click',function(event) {
+			window.localStorage.removeItem("doneList");
+			window.location.href = window.location.href;
+		});
+		$(".clearBtns").find(".startGame").on('click',function(event) {
+			$(".startBg").hide();
+			$(this).off("click").addClass("graybg");
+			if(!$(".card-container").is(":animated")){
+				$(".card-container").show().animate({
+					"width":"107px",
+					"height":"150px",
+					"opacity":1
+				},2000);
+			}
+			$(this).siblings(".allUncover").on('click',function(event) {
+				if(!$(".card-ul").hasClass("hasUncover")){
+					$(".card-ul").addClass("hasUncover");
+					$(".card-container").each(function(index, el) {
+						$(el).trigger("click");
+					});
+				}
+			});
+		});
+		$(".clearBtns").find(".reloadGame").on('click',function(event) {
+			window.location.href = window.location.href;
+		});
+});
+</script>
+</html>	
