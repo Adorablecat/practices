@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=640">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+	    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+	    <meta content="telephone=no" name="format-detection">
+		<!-- 删除苹果默认的工具栏和菜单栏 -->
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!-- 设置苹果工具栏颜色 -->
+		<meta name="format-detection" content="telephone=no, email=no">
+		<!-- 忽略页面中的数字识别为电话，忽略email识别 -->
+		<!-- 启用360浏览器的极速模式(webkit) -->
+		<meta name="renderer" content="webkit">
+		<!-- 避免IE使用兼容模式 -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+		<meta name="HandheldFriendly" content="true">
+		<!-- 微软的老式浏览器 -->
+		<meta name="MobileOptimized" content="320">
+		<!-- uc强制竖屏 -->
+		<meta name="screen-orientation" content="portrait">
+		<!-- QQ强制竖屏 -->
+		<meta name="x5-orientation" content="portrait">
+		<!-- UC强制全屏 -->
+		<meta name="full-screen" content="yes">
+		<!-- QQ强制全屏 -->
+		<meta name="x5-fullscreen" content="true">
+		<script src="js/mobile-util.js"></script>	
+		<title>很爱很爱你</title>
+		<link rel="stylesheet" href="css/css1.css">
+		<script src="js/mobile-util.js"></script>
+		<style>
+			.ttv {
+				width:280px;
+				height:280px;
+				position:absolute;
+				top:120px;
+				left:50%;
+				margin-left: -140px;
+			}
+			.progress {
+				width:400px;
+				height:auto;
+				position:absolute;
+				bottom:20%;
+				left:50%;
+				margin-left: -200px;
+				font-size: 32px;
+			}
+			.progress em {
+				font-style: normal;
+			}
+		</style>
+		<body >		
+			 <div class="page" id="app">
+		        <div class="page page-box animated fadeIn" id="pageBox">
+		            <div class="page page-load animated" :class="{'fadeOut' : showPlay}" id="pageLoad">
+		                <div class="cell">
+		                	<img src="http://liminglei.top/images/1204/ttv.png" class="ttv"/>
+		                    <div class="progress">
+		                    	<em>正在搜索:</em><span class="num" v-text="loadNum">0</span><span>%</span>
+		                    </div>
+		                </div>
+		            </div>
+		            <div class="page page1 animated fadeIn" v-cloak :class="{'fadeOut' : showVideo}" v-show="showPlay" id="showPlay" ptag="38574.26.41">
+		                <img src="//liminglei.top/images/1204/ccc1.png" class="ab font1">
+		                <img src="//img11.360buyimg.com/jdphoto/s284x495_jfs/t10141/152/2430740600/11574/a77d9c62/59f6c3a1N0bcac965.png" class="ab btn-play" @click="goVideo">
+		            </div>
+		            <div class="page animated page2" v-cloak :class="{'fadeIn' : showVideo && !showJump, 'fadeOut' : showJump}" v-show="showVideo">
+		                <video class="ab video" poster="" id="video_1" preload playsinline webkit-playsinline>
+		                    <source src="//oyb41x2hc.bkt.clouddn.com/bg2.mp4" />
+		                </video>
+		                <span ptag="38574.26.42" class="ab jump" @click="jumpVideo">跳过</span>
+		            </div>
+		            <div class="page page3 animated fadeIn" v-cloak v-show="showJump">
+		                <img ptag="38574.26.43" src="//liminglei.top/images/1204/fx1.png" class="ab btn-jump " @click="showShare=true">
+		                <img src="//img11.360buyimg.com/jdphoto/s1063x154_jfs/t7945/56/3063399524/10016/f185d778/59f71429N03449727.png" class="ab btn-jump tonghao" @click="goJump2">
+		            </div>
+		            <div  class="page fullscreen animated" v-cloak v-show="showShare" @click.stop="showShare = false"></div>
+		            <img :src="'//liminglei.top/images/' + (h > w ? 'share_portrait.png' : 'share.png')" v-cloak v-show="showShare" class="ab animated shareimg"
+		                 :class="{'fadeIn' : showShare, 'shareimg-zhuan' : h > w}" @click.stop="showShare = false"/>
+		        </div>
+		    </div>
+		    <script src="js/reset.js"></script>
+			<script src="js/vue.min.js"></script>
+			<script src="js/zepto.min.js"></script>
+			<script src="js/main1.js"></script>
+
+		</body>
+
+</html>
