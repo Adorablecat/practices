@@ -1,0 +1,283 @@
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <title>Swiper demo</title>
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">-->
+    <meta name="viewport" content="width=750,initial-scale=0.5,maximum-scale=0.5,minimum-scale=0.5,user-scalable=no">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="format-detection" content="telephone=no, email=no">		
+	<meta name="renderer" content="webkit">		
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">		
+	<meta name="HandheldFriendly" content="true">		
+	<meta name="MobileOptimized" content="320">		
+	<meta name="screen-orientation" content="portrait">		
+	<meta name="x5-orientation" content="portrait">
+	<meta name="full-screen" content="yes">		
+	<meta name="x5-fullscreen" content="true">	
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="./css/common.css" />
+    <link rel="stylesheet" href="./dist/css/swiper.min.css">
+    <script src="./js/mobile-util.js"></script>
+     <script src="js/imgloader.js"></script>
+    <!-- Demo styles -->
+    <style>
+    *{margin:0;padding:0;}
+    html, body {
+        position: relative;
+        height: 100%;
+    }
+    body {
+        background: #eee;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color:#000;
+        margin: 0;
+        padding: 0;
+    }
+    .swiper-container {
+        width: 100%;
+        height: 100%;
+    }
+    .swiper-slide {
+        text-align: center;
+        font-size: 26px;
+        background: #fff;
+
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+    .ab {position:absolute;}
+    .re{position:relative;}
+    </style>
+	<style>
+		video{
+			object-fit: fill;
+		}
+		/*load*/
+		.load{
+			top:0;
+			left:0;
+			width:100%;
+			height:100%;
+			background-color: #fff;
+			z-index: 999;
+		}
+		.ms_logo{
+			width:200px;
+			height:200px;
+			top:200px;
+			left:50%;
+			
+			margin-left:-86px ;
+		}
+		.ms_logo img {
+			width:100%;
+			height:100%;
+		}
+		.load .percent{
+			width:200px;
+			bottom:300px;
+			left:50%;
+			margin-left: -100px;
+			text-align:center;
+			font-size:28px;
+		}
+		.load .reg {
+			position: absolute;
+			bottom: 150px;
+			left: 50%;
+			margin-left: -105px;
+			width: 200px;
+			height: 53px;
+			font-size: 30px;
+			font-family: simsun, serif;
+			text-align: center;
+			color: #fbca4d;
+			padding: 9px;
+			border: 1px solid #379ad6;
+			border-radius: 10px
+		}
+		/*content*/
+		.cont_wrap {
+			width:100%;
+			height:100%;
+			top:0;
+			left:0;
+			right:0;
+			bottom:0;
+			overflow: hidden;
+			background-color: cadetblue;
+		}
+		/*video1*/
+		.video_1 {
+			top:0;
+			left:0;
+			width:750px;
+			height:420px;
+			background-color: cyan;
+		}
+		#video1 {
+			top:0;
+			left:0;
+			width:750px;
+			height:420px;
+			object-fit: fill;	
+			z-index: 55;
+		}
+		.video1_pl {
+			width:150px;
+			height:150px;
+			top:135px;
+			left:50%;
+			margin-left: -75px;
+			z-index: 56;
+		}
+		/*intro1*/
+		.intro1 {
+			top:420px;
+			left:0;
+			width:100%;
+			height:914px;
+		}
+		.intro1 img {
+			width:100%;
+			height:100%;
+			object-fit:fill;
+		}
+		/*video_2*/
+		.video_2 {
+			/*width: 1334px;*/
+			width:1220px;
+			height:750px;
+			top:50%;
+			left:50%;
+			/*margin:-375px 0 0 -667px;*/
+			margin:-375px 0 0 -610px;
+			overflow: hidden;
+			background-color: chartreuse;
+		}
+		#video2 {
+			width: 1220px;
+			height:750px;
+			left:50%;
+			bottom: 0;
+			margin-left: -610px;
+			-webkit-transform-origin: center bottom;
+		    -moz-transform-origin: center bottom;
+		    -ms-transform-origin: center bottom;
+		    -o-transform-origin: center bottom;
+		    transform-origin: center bottom;
+		}
+	</style>
+</head>
+<body>
+	<div class="ab load">
+		<div class="ab ms_logo">
+			<img src="http://liminglei.top/images/ms_logo.png"/>
+		</div>
+		 <div class="ab percent">0%</div>
+        <div class="reg hide">点击进入故事</div>
+	</div>
+    <!-- Swiper -->
+    <div class="swiper-container swiper-container-vertical">
+        <div class="swiper-wrapper" style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px);">
+            <div class="swiper-slide swiper-slide-active" style="height: 1334px;">
+            	<div class="ab cont_wrap">
+            		<div class="ab video_1">
+            			<video class="ab video1" poster="" id="video1" x-webkit-airplay="true" playsinline="" preload="auto" x5-video-player-type="h5" x5-video-player-fullscreen="true">
+		                   <source src="//oyb41x2hc.bkt.clouddn.com/bg2.mp4">
+		                </video>
+            		</div>
+            		<div class="ab intro1">
+            			<img src="./imgs/intro1.jpg" alt="">
+            		</div>
+            	</div>
+            </div>
+            <div class="swiper-slide swiper-slide-next" style="height: 1334px;">
+            	<div class="ab cont_wrap">
+            		<div class="ab video_2 r90">
+            			<video class="ab video2" poster="./imgs/poster.png" id="video2" x-webkit-airplay="true"  playsinline="" preload="auto" poster="" x5-video-player-type="h5" x5-video-player-fullscreen="true">
+		                   <source src="//oyb41x2hc.bkt.clouddn.com/bg2.mp4" />
+		                </video>
+            		</div>
+            	</div>
+            </div>
+            <div class="swiper-slide" style="height: 1334px;">Slide 3</div>
+            <div class="swiper-slide" style="height: 1334px;">Slide 4</div>
+            <div class="swiper-slide" style="height: 1334px;">Slide 5</div>
+            <div class="swiper-slide" style="height: 1334px;">Slide 6</div>
+            <div class="swiper-slide" style="height: 1334px;">Slide 7</div>
+            <div class="swiper-slide" style="height: 1334px;">Slide 8</div>
+            <div class="swiper-slide" style="height: 1334px;">Slide 9</div>
+            <div class="swiper-slide" style="height: 1334px;">Slide 10</div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets"><span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span></div>
+    </div>
+
+	<script src="./js/zepto.min.js"></script>
+	<script src="./js/common.js"></script>
+    <!-- Swiper JS -->
+    <script src="./dist/js/swiper.min.js"></script>
+    
+    <script>
+    	window.onload =  function(){
+    		var percent = document.querySelector(".percent");
+
+        imgLoader(['http://oyb41x2hc.bkt.clouddn.com/bg2.mp4', 
+        			'./imgs/play.png',
+        			'./imgs/poster.png',
+        			'http://liminglei.top/images/ms_logo.png',
+        			"http://stg-smartlearning.com/download/css3d-engine-master/img/yauncheng.png",
+				    "http://stg-smartlearning.com/download/css3d-engine-master/img/dupian.png",
+				    "http://stg-smartlearning.com/download/css3d-engine-master/img/feidaoshoushu.png",
+				    "http://stg-smartlearning.com/download/css3d-engine-master/img/yuanchengkanhu.png",
+				    "http://stg-smartlearning.com/download/css3d-engine-master/img/shangmentiyan.png",
+				    "http://stg-smartlearning.com/download/css3d-engine-master/img/yihudaojia.png",
+        		],
+            function (percentage) {
+                console.log(percentage);
+                var mf = Math.floor(percentage * 100) + '%';
+                console.info(mf);
+                percent.innerHTML = mf;
+                if(percentage>=1){
+                	console.log(percentage);
+                	$('.reg').removeClass('hide');
+                	console.info($('.reg'))
+                }
+            });
+    	};
+    </script>
+    
+    <script>
+    	$('.reg').on("click",function(){
+    		console.info("load is hide");
+    		$('.load').hide();
+    		$('#video1')[0].play();  
+    	});
+    </script>
+
+    <!-- Initialize Swiper -->
+    <script>
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        direction: 'vertical'
+    });
+    </script>
+
+</body>
+</html>
