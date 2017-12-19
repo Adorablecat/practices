@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	    <meta charset="utf-8">   
+	    <!--<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">-->
+	    <meta name="viewport" content="width=750">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+	    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+	    <meta content="telephone=no" name="format-detection">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no, email=no">		
+		<meta name="renderer" content="webkit">		
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">		
+		<meta name="HandheldFriendly" content="true">		
+		<meta name="MobileOptimized" content="320">		
+		<meta name="screen-orientation" content="portrait">		
+		<meta name="x5-orientation" content="portrait">
+		<meta name="full-screen" content="yes">		
+		<meta name="x5-fullscreen" content="true">	
+	    <link rel="stylesheet" href="css/comment.css" />
+	    <script src="js/mobile-util.js"></script>
+	    <script src="./js/imgloader.js"></script>
+		<title>沐熙圣诞节</title>
+		<style>
+			
+			.ab {
+				position: absolute;
+			}
+			.re {
+				position: relative;
+			}
+			.hide {
+				display: none;
+			}
+			
+			.wrapper {
+				width:100%;
+				height: 100%;
+			}
+			/*load*/
+			.loading {
+				width: 100%;
+				height:100%;
+				top:0;
+				left:0;
+				z-index: 30;
+				background-color: white;
+			}
+			.logo {
+				width:200px;
+				height:200px;
+				
+			}
+			.mayi {
+				width:216px;
+				height:401px;
+				top:30%;
+				left:50%;
+				margin-left: -108px;
+			}
+			
+			.my2 {
+				top:0;
+				left:0;
+				width:216px;
+				height:401px;
+				background:url(./imgs/my2.png) no-repeat;
+				background-size: 216px 401px;
+				z-index: 21;
+			}
+			.my1 {
+				top:0;
+				left:0;
+				width:216px;
+				height:401px;
+				background:url(./imgs/my1.png) no-repeat;
+				background-size: 216px 401px;
+				z-index: 20;
+			}
+			/*进度*/
+			.percent {
+				width:200px;
+				height:30px;
+				font-size: 28px;
+				text-align: center;
+				color:#a8dc93;
+				bottom:20%;
+				left:50%;
+				margin-left: -100px;
+			}
+			/*page1*/
+			.page1 {
+				width:100%;
+				height:100%;
+				background: url(./imgs/bg.png) no-repeat;
+				/*background-size: 100% 100%;*/
+				-webkit-background-size: 100% 100%;
+				animation: slideInDown 1s linear;
+				z-index: 18;
+			}
+			.time {
+				width:380px ;
+				height:140px;
+				/*border:1px solid red;*/
+				top:156px;
+				left:50%;
+				margin-left: -190px;
+				font-size:130px;
+				line-height: 140px;
+				text-align:center;
+				color:white;
+			}
+			.data {
+				width:380px ;
+				height:40px;
+				font-size:40px;
+				line-height: 40px;
+				text-align:center;
+				top:320px;
+				left:50%;
+				margin-left: -190px;
+				/*border:1px solid cyan;*/
+				color:white;
+			}
+			.msg1 {
+				width:955px;
+				height:183px;
+				background: url(./imgs/msg.png);
+				top:454px;
+				left:-224px;
+				opacity: 0;
+				animation: slideInDown 1s 1.5s linear;
+				animation-fill-mode :both;
+			}
+			.boto {
+				width:98px;
+				height:20px;
+				background: url(./imgs/boto.png);
+				bottom: 20px;
+				left:50%;
+				margin-left: -49px;
+			}
+			/*page2*/
+			.page2 {
+				top:0;
+				left:0;
+				right:0;
+				bottom:0;
+				width:100%;
+				height:100%;
+				z-index: 10;
+			}
+			.video1{
+				top:0;
+				left:0;
+				height:100%;
+				width:1px;
+				object-fit: fill;
+			}
+		</style>
+		<style>
+			@keyframes slideInDown {
+			  from {
+			    transform: translate3d(0, -100%, 0);
+			    visibility: visible;
+			    opacity: 0;
+			  }
+			
+			  to {
+			    transform: translate3d(0, 0, 0);
+			    opacity: 1;
+			  }
+			}
+		</style>
+	</head>
+	<body onload="displayDate()">
+		<div class="wrapper">
+			<div class="ab loading">
+				<div class="ab mayi">
+					<div class="ab my2"></div>
+					<div class="ab my1"></div>
+				</div>
+				<div class="ab percent">0%</div>
+			</div>
+			
+			<div class="ab page1">
+				<div class="ab time" id= "time"></div>
+				<div class="ab data" id= "data"></div>
+				<div class="ab msg1"></div>
+				<div class="ab boto"></div>
+			</div>
+			<div class="ab page2">
+				<video class="ab video1"src="http://static.cdn-speed.com/v1510798484/starbucks17xmas.i-orange.cn/iopublic/vid/video.mp4
+" x5-video-player-fullscreen="true" x-webkit-airplay="true" x5-video-player-type="h5" webkit-playsinline="false" playsinline preload="auto"></video>
+			</div>
+			<div class="finall"></div>
+			<div class="share">
+				
+			</div>
+			<div id="orientLayer" class="mod-orient-layer">
+			    <div class="mod-orient-layer__content">
+			        <i class="icon mod-orient-layer__icon-orient"></i>
+			        <div class="mod-orient-layer__desc">为了更好的体验，请使用竖屏浏览</div>
+			    </div>
+			</div>
+		</div>
+		<script src="./js/zepto.min.js"></script>
+		<script src="./js/common.js"></script>
+		<script>
+			
+			var percent = document.querySelector(".percent");
+
+	        imgLoader([ 
+	        			"http://stg-smartlearning.com/download/css3d-engine-master/img/yauncheng.png",
+					    "http://stg-smartlearning.com/download/css3d-engine-master/img/dupian.png",
+					    "http://stg-smartlearning.com/download/css3d-engine-master/img/feidaoshoushu.png",
+					    "http://stg-smartlearning.com/download/css3d-engine-master/img/yuanchengkanhu.png",
+					    "http://stg-smartlearning.com/download/css3d-engine-master/img/shangmentiyan.png",
+					    "http://stg-smartlearning.com/download/css3d-engine-master/img/yihudaojia.png",
+	        		],
+            function (percentage) {
+                console.log(percentage);
+                var mf = Math.floor(percentage * 100) + '%';
+                console.info(mf);
+                percent.innerHTML = mf;
+                if(percentage>=1){
+                	console.log(percentage);
+                	$('.reg').removeClass('hide');
+                	console.info($('.reg'))
+                }
+            });
+            
+            $(".my2").animate({
+					height: "0px"
+			}, 3000);
+			setTimeout(function(){
+				$('.loading').hide();
+			},3200)
+	    	
+		</script>
+		<script>  
+			
+	        function displayDate()  
+	        {  
+	            var date = new Date();  
+	            var year = date.getFullYear();  
+	            var mouths = date.getMonth()+1;  
+	            var day = date.getDate();  
+	            var hours =  date.getHours();  
+	            var minutes =  date.getMinutes();  
+	            var seconds = date.getSeconds();  
+	            var weekDay = new Array(7);  
+	            weekDay[0] = "星期日";  
+	            weekDay[1] = "星期一";  
+	            weekDay[2] = "星期二";  
+	            weekDay[3] = "星期三";  
+	            weekDay[4] = "星期四";  
+	            weekDay[5] = "星期五";  
+	            weekDay[6] = "星期六";  
+	            function fnW(str){
+				var num;
+				str>=10?num=str:num="0"+str;
+				return num;
+				} 
+				document.getElementById("time").innerHTML=fnW(hours)+":"+fnW(minutes);
+				document.getElementById("data").innerHTML=mouths+"月"+day+"日"+" "+weekDay[date.getDay()]
+//	            document.getElementById("demo").innerHTML="今天是："+year+"年"+mouths+"月"+day+"日"+hours+":"+minutes+":"+seconds+" "+weekDay[date.getDay()];  
+	            //获得当前时间,刻度为一千分一秒  
+	            var timeID = setTimeout(displayDate,1000);  
+	        }  
+	    </script>  
+	    <script>
+	    	var init =0;
+	    	$(".msg1").click(function(){
+	    		init += 1;
+	    		if(init<=1){
+	    			$(".msg1").animate({left:'18px'});
+	    		}else{
+	    			console.info(init);
+	    			$(".page1").hide();
+	    			$(".video1").css("width","100%");
+	    			$(".video1")[0].play();
+	    		}
+			    
+			    
+			  });
+	    </script>
+	</body>
+</html>

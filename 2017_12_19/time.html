@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#show {
+				font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+				font-size:28px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="show"></div>
+		<section class="s-cover">
+        <!-- Money -->
+	        <div class="time">14:36</div>
+	        <div class="date">Friday, September 6</div>
+	    </section>
+	</body>
+
+		<script type="text/javascript">
+			 window.onload = function() {
+			  var show = document.getElementById("show");
+			  setInterval(function() {
+			   var time = new Date();
+			   // 程序计时的月从0开始取值后+1
+			   var m = time.getMonth() + 1;
+			   var t = time.getFullYear() + "-" + m + "-"
+			     + time.getDate() + " " + time.getHours() + ":"
+			     + time.getMinutes() + ":" + time.getSeconds();
+			   show.innerHTML = t;
+			  }, 1000);
+			 };
+			 
+			 
+		</script>
+		<script>
+			function t() {
+					var t = new Date,
+						e = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+						r = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+					$(".s-cover .time").html(i.addZero(t.getHours(), 2) + ":" + i.addZero(t.getMinutes(), 2)), $(".s-cover .date").html(e[t.getDay()] + ", " + r[t.getMonth()] + " " + t.getDate()), n.fromTo(".s-cover", .5, {
+						y: "-100%"
+					}, {
+						y: "0%",
+						autoAlpha: 1,
+						delay: .5
+					}), n.fromTo(".s-cover .info", .5, {
+						y: i.pxRadio(-50),
+						autoAlpha: 0
+					}, {
+						y: 0,
+						autoAlpha: 1
+					}), n.call(function() {
+						n.pause()
+					}), n.to(".s-cover .info", .5, {
+						x: i.pxRadio(225),
+						autoAlpha: 1
+					}), n.fromTo(".s-cover .open", .5, {
+						autoAlpha: 0,
+						width: 0
+					}, {
+						autoAlpha: 1,
+						width: i.pxRadio(210)
+					}, "-=0.5"), n.call(x.video), $(".s-cover").hammer().on("tap", function() {
+						$(this).off("tap"), n.play()
+					})
+				}
+		</script>
+	
+</html>

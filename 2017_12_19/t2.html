@@ -1,0 +1,35 @@
+<!DOCTYPE html>  
+<html lang="en">  
+    <meta charset="utf-8">  
+<head>  
+    <script>  
+        function displayDate()  
+        {  
+            var date = new Date();  
+            var year = date.getFullYear();  
+            var mouths = date.getMonth()+1;  
+            var day = date.getDate();  
+            var hours =  date.getHours();  
+            var minutes =  date.getMinutes();  
+            var seconds = date.getSeconds();  
+            var weekDay = new Array(7);  
+            weekDay[0] = "星期日";  
+            weekDay[1] = "星期一";  
+            weekDay[2] = "星期二";  
+            weekDay[3] = "星期三";  
+            weekDay[4] = "星期四";  
+            weekDay[5] = "星期五";  
+            weekDay[6] = "星期六";  
+            document.getElementById("demo").innerHTML="今天是："+year+"年"+mouths+"月"+day+"日"+hours+":"+minutes+":"+seconds+" "+weekDay[date.getDay()];  
+            document.getElementById("time").innerHTML=hours+":"+minutes;
+            //获得当前时间,刻度为一千分一秒  
+            var timeID = setTimeout(displayDate,1000);  
+        }  
+    </script>  
+    <title></title>  
+</head>  
+<body onload="displayDate()">  
+<p id="demo"></p> 
+<p id="time"></p>
+</body>  
+</html> 
