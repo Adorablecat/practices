@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<!--<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">-->
+		<meta name="viewport" content="width=750">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta content="telephone=no" name="format-detection">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no, email=no">
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="HandheldFriendly" content="true">
+		<meta name="MobileOptimized" content="320">
+		<meta name="screen-orientation" content="portrait">
+		<meta name="x5-orientation" content="portrait">
+		<meta name="full-screen" content="yes">
+		<meta name="x5-fullscreen" content="true">
+		<link rel="stylesheet" href="css/index.css" />
+		<script src="js/mobile-util.js"></script>
+		<script src="./js/imgloader.js"></script>
+		<!-- Link Swiper's CSS -->
+		<link rel="stylesheet" href="./dist/css/swiper.min.css">
+		<script>
+			var _hmt = _hmt || [];
+			(function() {
+				var hm = document.createElement("script");
+				hm.src = "https://hm.baidu.com/hm.js?53bb82dc1bad0f16c806d527fcefb662";
+				var s = document.getElementsByTagName("script")[0];
+				s.parentNode.insertBefore(hm, s);
+			})();
+		</script>
+		<title>你好，2018</title>
+		<!-- Demo styles -->
+
+	</head>
+
+	<body>
+		<div class="ab loading ">
+			<div class="ab mayi">
+				<div class="ab my2"></div>
+				<div class="ab my1"></div>
+			</div>
+			<!--<div class="ab percent">0%</div>-->
+		</div>
+
+		<div class="ab first ">
+			<div class="ab mc_p"></div>
+			<div class="ab nice1"></div>
+			<div class="ab font_1"></div>
+			<div class="ab lt_c1"></div>
+			<div class="ab lt_c2"></div>
+			<div class="ab ant_first"></div>
+			<div class="ab pg1_bt"></div>
+		</div>
+		<!-- Swiper -->
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide page1">
+					<div class="ab book pre-3d" id="book">
+						<!-- 后封面 -->
+						<ul id="bk">
+							<li class="" id="Rcover"></li>
+							<!-- 书页 -->
+							<li class="pre-3d  page front9"></li>
+							<li class="pre-3d  page front8"></li>
+							<li class="pre-3d  page front7"></li>
+							<li class="pre-3d  page front6"></li>
+							<li class="pre-3d  page front4"></li>
+							<li class="pre-3d  page front3"></li>
+							<li class="pre-3d  page front2">
+
+							</li>
+							<!-- 书的封面 -->
+							<li class="pre-3d  page front1"></li>
+						</ul>
+
+					</div>
+					<div class="ab book_r">
+					</div>
+					<div class="ab book_l hide">
+					</div>
+					<div class="ab book_up hide"></div>
+					<div class="ab mc_p"></div>
+				</div>
+				<div class="swiper-slide page3">
+					<div class="ab note">
+						<ul class="ab">
+							<li><img src="./imgs/fan1.png" alt=""></li>
+							<li><img src="./imgs/fan2.png" alt=""></li>
+							<li><img src="./imgs/fan3.png" alt=""></li>
+							<li><img src="./imgs/fan4.png" alt=""></li>
+							<li><img src="./imgs/fan5.png" alt=""></li>
+							<li><img src="./imgs/fan6.png" alt=""></li>
+							<li><img src="./imgs/fan1.png" alt=""></li>
+							<li><img src="./imgs/fan2.png" alt=""></li>
+							<li><img src="./imgs/fan3.png" alt=""></li>
+							<li><img src="./imgs/fan4.png" alt=""></li>
+						</ul>
+					</div>
+					<div class="ab mc_p"></div>
+
+					<div class="ab book_up"></div>
+				</div>
+				<div class="swiper-slide page5">
+					<div class="ab pg5"></div>
+					<div class="ab mc_p"></div>
+					<div class="ab book_up"></div>
+				</div>
+				<div class="swiper-slide page2">
+					<div class="ab box1"><img src="./imgs/box1.png" alt="" /></div>
+					<div class="ab box2"><img src="./imgs/box2.png" alt="" /></div>
+					<div class="ab gifts"><img class="ab lj" src="./imgs/156.png" alt="" /></div>
+					<div class="ab book_up "></div>					
+					<div class="ab mc_p"></div>
+					<div class="ab tip"><img src="./imgs/tip.png" alt="" /></div>
+					<div class="sav1"><img class="ab sa" src="./imgs/156.png" alt="" /></div>
+				</div>
+
+				<div class="swiper-slide page4">
+					<div class="ab p4_ant"></div>
+					<div class="ab btn_c"></div>
+					<div class="ab share hide"></div>
+					<div class="ab mc_p"></div>
+				</div>
+
+			</div>
+			<!-- Add Pagination -->
+			<div class="swiper-pagination"></div>
+			<audio id="musicid" class="media-audio" src="imgs/music.mp3" autoplay preload loop="loop"></audio>
+		</div>
+
+		<script src="./js/zepto.min.js"></script>
+		<script src="./js/common.js"></script>
+		<script>
+			function audioAutoPlay(id) {
+				var audio = document.getElementById(id);
+				audio.play();
+				document.addEventListener("WeixinJSBridgeReady", function() {
+					audio.play();
+				}, false);
+			}
+			audioAutoPlay('musicid');
+		</script>
+		<script>
+			var percent = document.querySelector(".percent");
+
+			imgLoader([
+					"http://1118.mayinongchang.net/71229/imgs/my1.png",
+					"http://1118.mayinongchang.net/71229/imgs/my2.png",
+					"http://1118.mayinongchang.net/71229/imgs/bg_p1.png",
+					"http://1118.mayinongchang.net/71229/imgs/niceto1.png",
+					"http://1118.mayinongchang.net/71229/imgs/mc_p.png",
+					"http://1118.mayinongchang.net/71229/imgs/lt_c.png",
+					"http://1118.mayinongchang.net/71229/imgs/font_fr.png",
+					"http://1118.mayinongchang.net/71229/imgs/ant_first.png",
+					"http://1118.mayinongchang.net/71229/imgs/btn_first.png"
+				],
+				function(percentage) {
+					console.log(percentage);
+					console.info(345 - (345 * percentage));
+					var mf = Math.floor(percentage * 100) + '%';
+					console.info(mf);
+
+					//					percent.innerHTML = mf;
+					//					$(".my2").css("height","345-(345*percentage)");
+				});
+
+			$(".my2").animate({
+				height: "0px"
+			}, 3000);
+			setTimeout(function() {
+				$('.loading').hide();
+			}, 3200)
+		</script>
+
+		<!-- Swiper JS -->
+		<script src="./dist/js/swiper.min.js"></script>
+
+		<!-- Initialize Swiper -->
+		<script>
+			var swiper = new Swiper('.swiper-container', {
+				pagination: '.swiper-pagination',
+				paginationClickable: true,
+				direction: 'vertical'
+			});
+		</script>
+		<script>
+			$(".sa").on("click",function(){
+				$(".sa").hide();
+			})
+//			$(".lj").on("touchend",function(){
+//				console.info("lj");
+//				console.info($(this));
+//				$(".lj").addClass("zz");
+//				$(".lj").animate({"width":"357","height":"633"})
+//			})
+		</script>
+		<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+		<script>
+			var reback;
+			$(document).ready(function() {
+				$.getJSON("http://api.mayinongchang.net/Index/wx_share", function(data) {
+					reback = data.datas;
+					wx.config({
+						debug: false,
+						appId: reback.appId,
+						timestamp: reback.timestamp,
+						nonceStr: reback.nonceStr,
+						signature: reback.signature,
+						jsApiList: [
+							'onMenuShareTimeline',
+							'onMenuShareAppMessage'
+						]
+					});
+				})
+				wx.ready(function() {
+					wx.checkJsApi({
+						jsApiList: ['onMenuShareAppMessage', 'onMenuShareTimeline'], // 需要检测的JS接口列表，所有JS接口列表见附录2,
+						success: function(res) {
+							// 以键值对的形式返回，可用的api值true，不可用为false
+							// 如：{"checkResult":{"chooseImage":true},"errMsg":"checkJsApi:ok"}
+						}
+					});
+					wx.onMenuShareAppMessage({
+						title: '你好，2018', // 分享标题
+						desc: '沐熙日历与你相伴的200天', // 分享描述
+						link: 'http://1118.mayinongchang.net/71229/index.html', // 分享链接
+						imgUrl: 'http://1118.mayinongchang.net/71229/imgs/71229.png', // 分享图标
+						type: '', // 分享类型,music、video或link，不填默认为link
+						dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+						success: function() {},
+						cancel: function() {
+							// 用户取消分享后执行的回调函数
+						}
+					});
+					wx.onMenuShareTimeline({
+						title: '你好，2018', // 分享标题
+						desc: '沐熙日历与你相伴的200天', // 分享描述
+						link: 'http://1118.mayinongchang.net/71229/index.html', // 分享链接
+						imgUrl: 'http://1118.mayinongchang.net/71229/imgs/71229.png', // 分享图标
+						success: function() {},
+						cancel: function() {}
+					});
+					// config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready函数中。
+				});
+			})
+		</script>
+	</body>
+
+</html>
