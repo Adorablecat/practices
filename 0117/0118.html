@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=750">
+		<link rel="stylesheet" href="css/comment.css" />
+		<script src="./js/mobile-util.js"></script>、
+		<script src="js/imgloader.js"></script>
+		<title>我是沐熙，天生骄傲</title>
+		<style>
+			html,body {
+				background-color: #d6e8f2;
+			}
+			.ab {
+				position: absolute;
+			}
+			
+			.re {
+				position: relative;
+			}
+			
+			.hide {
+				display: none;
+			}
+			/*load*/
+			
+			.load {
+				width: 100%;
+				top: 0;
+				left;
+				0;
+				right: 0;
+				bottom: 0;
+				background-color: #fff;
+			}
+			
+			.img-1 {
+				width: 324px;
+				height: 540px;
+				bottom: 30%;
+				left:50%;
+				margin-left: -163px;
+			}
+			.load1 {
+				top:0;
+				left:0;
+				height:540px;
+				width:324px;
+				background: url(./imgs/load-2.png) no-repeat;
+				background-size: 324px 540px;
+				-webkit-background-size: 324px 540px;
+				/*display: none;*/
+			}
+			.load2 {
+				top:0;
+				left:0;
+				height:540px;
+				width:324px;
+				background: url(./imgs/load-1.png) no-repeat;
+				background-size: 324px 540px;
+				-webkit-background-size: 324px 540px;
+				/*display: none;*/
+			}
+			.percent {
+				bottom:10%;
+				left:50%;
+				width:80px;
+				height:40px;
+				margin-left: -40px;
+				text-align: center;
+				line-height: 40px;
+			}
+			.btn {
+				bottom: 5%;
+				left: 50%;
+				margin-left: -88px;
+				height: 45px;
+				width: 155px;
+				background: url(./imgs/start.png) no-repeat;
+				/*border: 1px solid red;*/
+				text-align: center;
+				padding: 2px 4px;
+			}
+			/*page1*/
+			
+			.page1 {
+				width: 100%;
+				height:100%;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				background-color: #d6e8f2;
+			}
+			
+			.video1 {
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				width: 100%;
+				height: 100%;
+				object-fit: fill;
+			}
+			
+			.v1_left {
+				width: 52%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				/*border:2px dotted #c82f29;*/
+			}
+			
+			.v1_right {
+				width: 48%;
+				height: 100%;
+				top: 0;
+				right: 0;
+				/*border:2px dotted #d76da7;*/
+			}
+			/*page2*/
+			
+			.page2 {
+				width: 100%;
+				top: 0;
+				height: 100%;
+				left: 0;
+				bottom: 0;
+				right: 0;
+				background-color: #d6e8f2;
+			}
+			
+			.video2 {
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				width: 100%;
+				height: 100%;
+				object-fit: fill;
+				display: none;
+			}
+			
+			.video3 {
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				width: 100%;
+				height: 100%;
+				object-fit: fill;
+				display: none;
+			}
+			/*page3*/
+			
+			.page3 {
+				width: 100%;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				background: url(./imgs/pg3.png) no-repeat;
+				-webkit-background-size: 100% 100%;
+				background-size: 100% 100%;
+			}
+			
+			.test1 {
+				bottom: 70px;
+				left: 50%;
+				margin-left: -231px;
+				width: 541px;
+				height: 166px;
+				background: url(./imgs/3-1.png) no-repeat;
+				animation: bounceIn 2s linear;
+			}
+			/*page4*/
+			
+			.page4 {
+				width: 100%;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				background-color: #fff;
+			}
+			
+			.cq1 {
+				width: 100%;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				background: url(./imgs/cq.png) no-repeat;
+				-webkit-background-size: 100% 100%;
+				background-size: 100% 100%;
+			}
+			
+			.pop {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background-color: #e8ebe3;
+				z-index: 222;
+				animation: wobble 2s linear;
+			}
+			
+			.pop img {
+				width: 100%;
+			}
+			
+			.ag1,
+			.sa1 {
+				width: 155px !important;
+				height: 45px !important;
+				z-index: 333;
+			}
+			
+			.ag1 {
+				bottom: 10%;
+				left: 80px;
+			}
+			
+			.sa1 {
+				bottom: 10%;
+				left: 320px;
+			}
+			
+			.p3 {
+				top: 10px;
+				right: 10px;
+				width: 90px;
+				height: 90px;
+				/*border:1px solid red;*/
+			}
+			
+			.p3 img {
+				width: 100%;
+				height: 100%;
+			}
+			/*.pop .tips {
+				width:100%;
+				height:80px;
+				background-color: #e8ebe3;
+				text-align: center;
+				line-height: 80px;
+				font-size:1.2rem;
+				left:0;
+				bottom:40%;
+				opacity: 0.5;
+				z-index: 223;
+				animation: bounceIn 2s linear;
+			}*/
+			
+			@keyframes bounceIn {
+				from,
+				20%,
+				40%,
+				60%,
+				80%,
+				to {
+					animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+				}
+				0% {
+					opacity: 0;
+					transform: scale3d(.3, .3, .3);
+				}
+				20% {
+					transform: scale3d(1.1, 1.1, 1.1);
+				}
+				40% {
+					transform: scale3d(.9, .9, .9);
+				}
+				60% {
+					opacity: 1;
+					transform: scale3d(1.03, 1.03, 1.03);
+				}
+				80% {
+					transform: scale3d(.97, .97, .97);
+				}
+				to {
+					opacity: 1;
+					transform: scale3d(1, 1, 1);
+				}
+			}
+			
+			@keyframes wobble {
+				from {
+					transform: none;
+				}
+				15% {
+					transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -5deg);
+				}
+				30% {
+					transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 3deg);
+				}
+				45% {
+					transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -3deg);
+				}
+				60% {
+					transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 2deg);
+				}
+				75% {
+					transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -1deg);
+				}
+				to {
+					transform: none;
+				}
+			}
+		</style>
+		<style>
+			#audio_btn {
+				position:absolute;
+				top:30px ;
+				right:20px;
+				z-index: 998;
+				width: 60px;
+				height: 60px;
+				background-image: url(./imgs/mc.png);
+				background-size: contain;
+			}
+			
+			.rotate {
+				-webkit-animation: rotating 1.2s linear infinite;
+				-moz-animation: rotating 1.2s linear infinite;
+				-o-animation: rotating 1.2s linear infinite;
+				animation: rotating 1.2s linear infinite
+			}
+			
+			@-webkit-keyframes rotating {
+				from {
+					-webkit-transform: rotate(0)
+				}
+				to {
+					-webkit-transform: rotate(360deg)
+				}
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="ab load hide" style="z-index: 999;">
+			<div class="ab img-1 ">
+				<div class="ab load1"></div>
+				<div class="ab load2"></div>
+			</div>
+			<!--<div class="ab percent">0%</div>-->
+			<div class="ab btn hide"></div>
+		</div>
+		<div class="ab page1 hide" style="z-index:666;">
+			<video src="http://1118.mayinongchang.net/80118/mp4/1171.mp4" class="video1" x5-video-player-fullscreen="true" x-webkit-airplay="true" x5-video-player-type="h5" webkit-playsinline="false" playsinline preload="auto"></video>
+			<div class="pg1"><img class="ab pg1-1 hide" src="./imgs/pg1-1.gif" alt="" /></div>
+			<div class="ab v1_left hide"></div>
+			<div class="ab v1_right hide"></div>
+		</div>
+		<div class="ab page2 hide" style="z-index:555;">
+			<video src="http://1118.mayinongchang.net/80118/mp4/1172.mp4" class="video2" x5-video-player-fullscreen="true" x-webkit-airplay="true" x5-video-player-type="h5" webkit-playsinline="false" playsinline preload="auto"></video>
+
+			<video src="http://1118.mayinongchang.net/80118/mp4/1173.mp4" class="video3" x5-video-player-fullscreen="true" x-webkit-airplay="true" x5-video-player-type="h5" webkit-playsinline="false" playsinline preload="auto"></video>
+		</div>
+		<div class="ab page3  hide" style="z-index:444;">
+			<div class="ab test1">
+
+			</div>
+		</div>
+		<div class="ab page4 " style="z-index:333;">
+			<div class="ab cq1 ">
+				
+			</div>
+			<div class="pop hide">
+				<div>
+					<img src="./imgs/pop-0.png" alt="">
+					<img class="ab ag1" src="./imgs/ag1.png" alt="" />
+					<img class="ab sa1" src="./imgs/sa1.png" alt="" />
+				</div>
+			</div>
+			<div class="pop hide">
+				<div>
+					<img src="./imgs/pop-1.png" alt="">
+					<img class="ab ag1" src="./imgs/ag1.png" alt="" />
+					<img class="ab sa1" src="./imgs/sa1.png" alt="" />
+				</div>
+				<!-- <div class="ab tips">长按图片保存到手机</div>-->
+			</div>
+			<div class="pop hide">
+				<div>
+					<img src="./imgs/pop-2.png" alt="">
+					<img class="ab ag1" src="./imgs/ag1.png" alt="" />
+					<img class="ab sa1" src="./imgs/sa1.png" alt="" />
+				</div>
+			</div>
+			<div class="pop hide">
+				<div>
+					<img src="./imgs/pop-3.png" alt="">
+					<img class="ab ag1" src="./imgs/ag1.png" alt="" />
+					<img class="ab sa1" src="./imgs/sa1.png" alt="" />
+				</div>
+			</div>
+			<div class="pop hide">
+				<div>
+					<img src="./imgs/pop-4.png" alt="">
+					<img class="ab ag1" src="./imgs/ag1.png" alt="" />
+					<img class="ab sa1" src="./imgs/sa1.png" alt="" />
+				</div>
+			</div>
+			<div class="pop hide">
+				<div>
+					<img src="./imgs/pop-5.png" alt="">
+					<img class="ab ag1" src="./imgs/ag1.png" alt="" />
+					<img class="ab sa1" src="./imgs/sa1.png" alt="" />
+				</div>
+			</div>
+			<div class="pop hide">
+				<div>
+					<img src="./imgs/pop-6.png" alt="">
+					<img class="ab ag1" src="./imgs/ag1.png" alt="" />
+					<img class="ab sa1" src="./imgs/sa1.png" alt="" />
+				</div>
+			</div>
+			<div class="pop hide">
+				<div>
+					<img src="./imgs/pop-7.png" alt="">
+					<img class="ab ag1" src="./imgs/ag1.png" alt="" />
+					<img class="ab sa1" src="./imgs/sa1.png" alt="" />
+				</div>
+			</div>
+			<div class="pop hide">
+				<div>
+					<img src="./imgs/pop-8.png" alt="">
+					<img class="ab ag1" src="./imgs/ag1.png" alt="" />
+					<img class="ab sa1" src="./imgs/sa1.png" alt="" />
+				</div>
+			</div>
+			<div class="pop hide">
+				<div>
+					<img src="./imgs/pop-9.png" alt="">
+					<img class="ab ag1" src="./imgs/ag1.png" alt="" />
+					<img class="ab sa1" src="./imgs/sa1.png" alt="" />
+				</div>
+			</div>
+		</div>
+		<div class="p3">
+			<!--<audio style="display:none; height: 0" id="bgMusic" preload="auto" src="./mp4/bg.mp3" loop="loop" autoplay="autoplay"></audio>-->
+
+		</div>
+		<div id="audio_btn" class="rotate">
+			<audio style="display:none; height: 0" id="bgMusic" preload="auto" src="http://1118.mayinongchang.net/80118/mp4/bg.mp3" loop="loop" autoplay="autoplay"></audio>
+		</div>
+		<!--旋转提示-->
+		<!-- 选择禁止横屏或竖屏显示-->
+		<div id="orientLayer" class="mod-orient-layer">
+			<div class="mod-orient-layer__content">
+				<i class="icon mod-orient-layer__icon-orient"></i>
+				<div class="mod-orient-layer__desc">为了更好的体验，请使用竖屏浏览</div>
+			</div>
+		</div>
+		<script src="./js/common.js"></script>
+		<script src="./js/jquery.min.js"></script>
+		<script src="./js/zepto.min.js"></script>
+		<script>
+			$(".load2").animate({
+				height: "0px"
+			}, 4000);
+			var percent = document.querySelector(".percent");
+			console.info(percent);
+		    imgLoader(['./imgs/pop-1.png','./imgs/pop-2.png','./imgs/pop-3.png','./imgs/pop-4.png', './imgs/pop-5.png','./imgs/pop-6.png','./imgs/load-1.png','./imgs/load-2.png','./imgs/start.png','http://1118.mayinongchang.net/80118/mp4/bg.mp3'],
+		    function(percentage){
+				var mmf = Math.floor(percentage*100 );
+				var mf = Math.floor(percentage*100 )+ '%' ;
+				console.info(mmf);
+				console.info(mf);
+				if(mmf == 100){
+					console.info("100%");
+					$(".btn").show();
+				}
+//		        percent.innerHTML = mf;
+		    });
+		</script>
+		<script>
+			$(".btn").on("click", function() {
+				$(this).parent().hide();
+				$(".video1")[0].play();
+				console.info("156");
+			})
+			$(".video1").on("ended", function() {
+				console.info("video1 is ended.");
+				$(".video1").hide();
+				$(".pg1-1").show();
+				$(".v1_left").show();
+				$(".v1_right").show();
+			})
+
+			$(".v1_left").on("click", function() {
+				$(this).parent().hide();
+				$(".page2").show();
+				$(".video2").show();
+				$(".video2")[0].play();
+			})
+			$(".v1_right").on("click", function() {
+				$(this).parent().hide();
+				$(".page2").show();
+				$(".video3").show();
+				$(".video3")[0].play();
+			})
+			$(".video2").on("ended", function() {
+				$(".page2").hide();
+				$(".page3").show();
+			})
+			$(".video3").on("ended", function() {
+				$(".page2").hide();
+				$(".page3").show();
+			})
+
+			$(".test1").on("click", function() {
+				$(".page3").hide();
+				$(".page4").show();
+			})
+			$(".ag1").on("click", function() {
+				$(".pop").hide();
+				$(this).parent().parent().hide();
+			})
+
+			$(".mp3_play").on("click", function() {
+				console.info("clc");
+				var audioPlayer = document.querySelector("bgmc");
+				console.info($("#bgmc"));
+				$("#bgmc").pause();
+				console.info(audioPlayer);
+
+			})
+		</script>
+		<script>
+			
+			var myAudio = document.getElementById('bgMusic');
+		    $("#audio_btn").on("click",function(){
+		        if($("#audio_btn").hasClass("rotate")){
+		        	$("#audio_btn").removeClass("rotate")
+		        	myAudio.pause();
+		        }else{
+		        	$("#audio_btn").addClass("rotate")
+		            myAudio.play();
+		        }
+		    });
+		</script>
+		<script>
+			var tip = ["态度","爱","独立","奋斗","努力","智慧","自由","温暖","追求","善意"];
+			var cos1 = Math.round(Math.random() * 12) % 6;
+			var tip1 ;
+			console.info(tip[cos1]);
+			console.info(tip[tip1]);
+			const SHAKE_SPEED = 200;
+			let lastTime = 0; //上次变化的时间
+			let x = y = z = lastX = lastY = lastZ = 0; //位置变量初始化
+
+			function motionHandler(event) {
+				let acceleration = event.accelerationIncludingGravity;
+				let curTime = Date.now(); //取得当前时间
+				if((curTime - lastTime) > 120) {
+					let diffTime = curTime - lastTime;
+					lastTime = curTime;
+					x = acceleration.x;
+					y = acceleration.y;
+					z = acceleration.z;
+					//计算摇动速度
+					let speed = Math.abs(x + y + z - lastX - lastY - lastZ) / diffTime * 1000;
+					if(speed > SHAKE_SPEED) {
+						//		          alert("你摇动了手机");
+						 tip1 = Math.round(Math.random() * 20) % 10;
+//						alert(tip1);
+//						$(".pop:eq(" + Math.round(Math.random() * 12) % 6 + ")").show();
+						$(".pop:eq("+tip1+")").show();
+//						alert(tip[tip1]);
+						
+					}
+					lastX = x;
+					lastY = y;
+					lastZ = z;
+				}
+			}
+			if(window.DeviceMotionEvent) {
+				window.addEventListener('devicemotion', motionHandler, false);
+			} else {
+				alert("你的设备不支持位置感应");
+			}
+//			alert(tip[tip1]);
+		</script>
+		<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+		<script>
+			var reback;
+			$(document).ready(function() {
+				$.getJSON("http://api.mayinongchang.net/Index/wx_share", function(data) {
+					reback = data.datas;
+					wx.config({
+						debug: false,
+						appId: reback.appId,
+						timestamp: reback.timestamp,
+						nonceStr: reback.nonceStr,
+						signature: reback.signature,
+						jsApiList: [
+							'onMenuShareTimeline',
+							'onMenuShareAppMessage'
+						]
+					});
+				})
+				wx.ready(function() {
+					myAudio.play();
+					wx.checkJsApi({
+						jsApiList: ['onMenuShareAppMessage', 'onMenuShareTimeline'], // 需要检测的JS接口列表，所有JS接口列表见附录2,
+						success: function(res) {
+							// 以键值对的形式返回，可用的api值true，不可用为false
+							// 如：{"checkResult":{"chooseImage":true},"errMsg":"checkJsApi:ok"}
+						}
+					});
+					
+					wx.onMenuShareAppMessage({
+						title: '我的关键词是"+tip[Math.round(Math.random() * 12) % 6]+"，快来测测你的关键词吧~', // 分享标题
+						desc: '选一个词，送给这一年的你', // 分享描述
+						link: 'http://1118.mayinongchang.net/80118/index.html', // 分享链接
+						imgUrl: 'http://1118.mayinongchang.net/80118/share_1.png', // 分享图标
+						type: '', // 分享类型,music、video或link，不填默认为link
+						dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+						success: function() {},
+						cancel: function() {
+							// 用户取消分享后执行的回调函数
+						}
+					});
+					wx.onMenuShareTimeline({
+						title: '我的关键词是"+tip[Math.round(Math.random() * 12) % 6]+"，快来测测你的关键词吧~', // 分享标题
+						desc: '选一个词，送给这一年的你', // 分享描述
+						link: 'http://1118.mayinongchang.net/80118/index.html', // 分享链接
+						imgUrl: 'http://1118.mayinongchang.net/80118/share_1.png', // 分享图标
+						success: function() {},
+						cancel: function() {}
+					});
+					// config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready函数中。
+				});
+				
+			})
+		</script>
+	</body>
+
+</html>

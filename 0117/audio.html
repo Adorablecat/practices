@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#audio_btn {
+				width: 90px;
+				height: 90px;
+				background-image: url(./imgs/mc.png);
+				background-size: contain;
+			}
+			
+			.rotate {
+				-webkit-animation: rotating 1.2s linear infinite;
+				-moz-animation: rotating 1.2s linear infinite;
+				-o-animation: rotating 1.2s linear infinite;
+				animation: rotating 1.2s linear infinite
+			}
+			
+			@-webkit-keyframes rotating {
+				from {
+					-webkit-transform: rotate(0)
+				}
+				to {
+					-webkit-transform: rotate(360deg)
+				}
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="audio_btn" class="rotate">
+			<audio style="display:none; height: 0" id="bgMusic" preload="auto" src="./mp4/bg.mp3" loop="loop" autoplay="autoplay"></audio>
+		</div>
+		<script src="./js/jquery.min.js"></script>
+		<!--<script src="./js/play.js"></script>-->
+		<script>
+			var myAudio = document.getElementById('bgMusic');
+		    $("#audio_btn").on("click",function(){
+		        if($("#audio_btn").hasClass("rotate")){
+		        	$("#audio_btn").removeClass("rotate")
+		        	myAudio.pause();
+		        }else{
+		        	$("#audio_btn").addClass("rotate")
+		            myAudio.play();
+		        }
+		    });
+		</script>
+	</body>
+
+</html>

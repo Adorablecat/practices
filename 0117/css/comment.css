@@ -1,0 +1,176 @@
+body, nav, dl, dt, dd, p, h1, h2, h3, h4, ul, ol, li, input, button, textarea, footer {
+    margin: 0;
+    padding: 0
+}
+*:not(input,textarea) {
+    -webkit-touch-callout: inherit;
+    -webkit-user-select: auto;
+}
+html,body{
+    width: 100%;
+    height: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%
+}
+
+form {
+    display: inline
+}
+
+ul, ol {
+    list-style: none
+}
+
+a {
+    text-decoration: none;
+    color: #1a1a1a
+}
+
+a:hover, a:active, a:focus {
+    color: #1c5aa2;
+    text-decoration: none;
+}
+
+a:active {
+    color: #aaa;
+}
+a, img {
+    -webkit-touch-callout: none; /* 禁止长按链接与图片弹出菜单 */
+}
+img {
+    vertical-align: middle;
+    border: 0;
+    -ms-interpolation-mode: bicubic;
+}
+
+button, input, select, textarea {
+    font-size: 100%;
+    vertical-align: middle;
+    outline: none;
+}
+
+textarea {
+    resize: none
+}
+
+button, input[type="button"], input[type="reset"], input[type="submit"] {
+    cursor: pointer;
+    -webkit-appearance: button;
+    -moz-appearance: button
+}
+
+input:focus:-moz-placeholder, input:focus::-webkit-input-placeholder {
+    color: transparent
+}
+
+button::-moz-focus-inner, input::-moz-focus-inner {
+    padding: 0;
+    border: 0
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+/*横竖屏设置*/
+@-webkit-keyframes rotation {
+    10% {
+        transform: rotate(90deg);
+        -webkit-transform: rotate(90deg)
+    }
+    50%, 60% {
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg)
+    }
+    90% {
+        transform: rotate(90deg);
+        -webkit-transform: rotate(90deg)
+    }
+    100% {
+        transform: rotate(90deg);
+        -webkit-transform: rotate(90deg)
+    }
+}
+
+@keyframes rotation {
+    10% {
+        transform: rotate(90deg);
+        -webkit-transform: rotate(90deg)
+    }
+    50%, 60% {
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg)
+    }
+    90% {
+        transform: rotate(90deg);
+        -webkit-transform: rotate(90deg)
+    }
+    100% {
+        transform: rotate(90deg);
+        -webkit-transform: rotate(90deg)
+    }
+}
+#orientLayer {
+    display: none;
+}
+
+@media all and (orientation : landscape){
+    #orientLayer {
+        display: block;
+    }
+
+    body {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.mod-orient-layer {
+    display: none;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: #000;
+    z-index: 9997
+}
+
+.mod-orient-layer__content {
+    position: absolute;
+    width: 100%;
+    top: 35%;
+    margin-top: -75px;
+    text-align: center
+}
+
+.mod-orient-layer__icon-orient {
+    background-image: url('../imgs/phone.png');
+    display: inline-block;
+    width: 67px;
+    height: 109px;
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -webkit-animation: rotation infinite 1.5s ease-in-out;
+    animation: rotation infinite 1.5s ease-in-out;
+    -webkit-background-size: 67px;
+    background-size: 67px
+}
+
+.mod-orient-layer__desc {
+    margin-top: 260px;
+    font-size: 15px;
+    color: #fff;
+}
+.mod-orient-layer__desc p{
+	margin: 20px 0 15px;
+	font-size: 26px;
+	font-weight: bold;
+    text-align: center;
+    color: #ffd900;
+}
