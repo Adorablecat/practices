@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=750">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta content="telephone=no" name="format-detection">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no, email=no">
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="HandheldFriendly" content="true">
+		<meta name="MobileOptimized" content="320">
+		<meta name="screen-orientation" content="portrait">
+		<meta name="x5-orientation" content="portrait">
+		<meta name="full-screen" content="yes">
+		<meta name="x5-fullscreen" content="true">
+		<link rel="stylesheet" href="css/comment.css" />
+		<link rel="stylesheet" href="css/page2.css" />
+
+		<script src="./js/mobile-util.js"></script>
+		<title>发布会</title>
+		<style>
+			.aab {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				left: 0;
+				top: 0;
+				right: 0;
+				bottom: 0;
+			}
+			
+			.ab {
+				position: absolute;
+			}
+			.re{position:relative;}
+			.hide {
+				display: none;
+			}
+			
+			.load {
+				background: url(./img/bg_load.jpg) no-repeat;
+				background-size: 100% 100%;
+			}
+			
+			.load .load_m {
+				width: 180px;
+				height: 180px;
+				background: url(./img/qz.gif) no-repeat;
+				background-size: 100% 100%;
+				top: 30%;
+				left: 50%;
+				margin-left: -90px;
+				border-radius: 50%;
+			}
+			
+			.load .load_btn {
+				width: 120px;
+				height: 60px;
+				border: 1px solid black;
+				bottom: 20%;
+				left: 50%;
+				margin-left: -60px;
+				font-size: 28px;
+				line-height: 60px;
+				text-align: center;
+			}
+			/*page2*/
+		</style>
+	</head>
+
+	<body onload="displayDate()">
+		<div class="load aab hide" style="z-index: 99;">
+			<div class="ab load_m"></div>
+			<div class="ab load_btn" style="z-index: 100;">start</div>
+		</div>
+		<div class="page_wrap">
+			<div class="page1 aab " style="z-index:111">
+				<div class="ab station"></div>
+				<div class="ab live"></div>
+				<div class="tv" style="z-index:115">
+					<div class="ab tv4" style="z-index:114"></div>
+					<div class="ab tv3" style="z-index:113"></div>
+					<div class="ab tv2" style="z-index:112"></div>
+					<div class="ab tv1" style="z-index:111"></div>
+				</div>
+				<!--山东-->
+				<div class="ab shandong"></div>
+				<div class="ab news_title"></div>
+				<!--anchor-->
+				<div class="ab anchor"></div>
+				<!--jump-->
+				<div class="ab news_jump" style="z-index:112"></div>
+				<!--新闻部分-->
+				<div class="news">
+					<div class="ab date"></div>
+					<div class="ab news_bt"></div>
+					<!--新闻左-->
+					<div class="ab new_left">
+						<!--<div class="ab data" id= "data"></div>-->
+						<!--<div id="date"></div>-->
+						<div class="news_time2">
+							<p id="data"></p>
+							<p id="date"></p>
+						</div>
+
+						<div class="ab new_time" id="time">
+
+						</div>
+					</div>
+					<!--新闻文字-->
+					<div class="ab news_content"></div>
+					<div class="ab news_my"></div>
+				</div>
+			</div>
+			<div class="page2 hide" style="z-index:222" id="p2">
+				<div class="bg_p2" id="p2">
+					<div class="ab qk1"></div>
+					<div class="ab arm2"></div>
+					<div class="ab qk2"></div>
+					<div class="ab arm3"></div>
+					<div class="ab qk3"></div>
+					<div class="ab arm4"></div>
+					<div class="ab qk4"></div>
+					<div class="ab arm5"></div>
+					<div class="ab qk5"></div>
+					<div class="ab arm6"></div>
+					<div class="ab qk6"></div>
+					<div class="ab arm7"></div>
+					<div class="ab qk7"></div>
+					<div class="ab arm8"></div>
+					<div class="ab qk8"></div>
+				</div>
+				
+				<!--<img src="./img/bg_p2.jpg" id="bg2" alt="" />-->
+				
+				
+				<div class="ask"></div>
+			</div>
+		</div>
+		<!-- 选择禁止横屏或竖屏显示-->
+		<div id="orientLayer" class="mod-orient-layer">
+			<div class="mod-orient-layer__content">
+				<i class="ic1on mod-orient-layer__icon-orient"></i>
+				<div class="mod-orient-layer__desc">为了更好的体验，请使用竖屏浏览</div>
+			</div>
+		</div>
+	</body>
+	<script src="./js/jquery.min.js"></script>
+	<script src="./js/scroll.js"></script>
+	<!--time-->
+	<script>
+		function displayDate() {
+			var date = new Date();
+			var year = date.getFullYear();
+			var mouths = date.getMonth() + 1;
+			var day = date.getDate();
+			var hours = date.getHours();
+			var minutes = date.getMinutes();
+			var seconds = date.getSeconds();
+			var weekDay = new Array(7);
+			weekDay[0] = "星期日";
+			weekDay[1] = "星期一";
+			weekDay[2] = "星期二";
+			weekDay[3] = "星期三";
+			weekDay[4] = "星期四";
+			weekDay[5] = "星期五";
+			weekDay[6] = "星期六";
+
+			function fnW(str) {
+				var num;
+				str >= 10 ? num = str : num = "0" + str;
+				return num;
+			}
+//			console.info("159");
+			document.getElementById("time").innerHTML = fnW(hours) + ":" + fnW(minutes);
+			document.getElementById("date").innerHTML = weekDay[date.getDay()];
+			document.getElementById("data").innerHTML = mouths + "月" + day + "日";
+
+			//获得当前时间,刻度为一千分一秒
+			var timeID = setTimeout(displayDate, 1000);
+		}
+	</script>
+	<script>
+		var dynamicLoading = {
+			css: function(path) {
+				if(!path || path.length === 0) {
+					throw new Error('argument "path" is required !');
+				}
+				var head = document.getElementsByTagName('head')[0];
+				var link = document.createElement('link');
+				link.href = path;
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				head.appendChild(link);
+			},
+			js: function(path) {
+				if(!path || path.length === 0) {
+					throw new Error('argument "path" is required !');
+				}
+				var head = document.getElementsByTagName('head')[0];
+				var script = document.createElement('script');
+				script.src = path;
+				script.type = 'text/javascript';
+				head.appendChild(script);
+			}
+		}
+	</script>
+	<script type="text/javascript">
+		dynamicLoading.css("./css/page1.css");
+		dynamicLoading.js("./js/test.js");
+	</script>
+	
+	<script>
+		$(document).ready(function(){
+			$(".load_btn").on("touchend", function() {
+				$(".load").fadeOut(1200);
+				$(".page1").fadeIn(1200);
+			});
+			$(".news_jump").on("touchend", function() {
+				$(".page1").fadeOut(1200);
+				$(".page2").fadeIn(1200);
+				$("#p2").scrollLeft(1520);
+				console.info($("#p2").scrollLeft());
+			})
+			
+		});
+	</script>
+	<script>
+			var div = document.getElementById("p2");
+			
+			var start = {x:0,y:0},	//起点
+				end   = {x:0,y:0};  //终点
+				
+			div.addEventListener("touchstart",function(e){
+				start.x = e.targetTouches[0].pageX;
+				start.y = e.targetTouches[0].pageY;
+				
+				console.info(start)
+			});
+			
+			div.addEventListener("touchend",function(e){
+				
+				end.x = e.changedTouches[0].pageX;
+				end.y = e.changedTouches[0].pageY;
+				
+				console.info(e,end)
+				
+				if(end.x - start.x > 30){
+					//滑动超过30px。现在要准备派发 swipeRight 事件
+					var evt = document.createEvent("CustomEvent");
+					evt.initCustomEvent("swipeRight",true,true,{d:end.x - start.x});
+					div.dispatchEvent(evt);
+				}
+				if(start.x - end.x > 30){
+					//滑动超过30px。现在要准备派发 swipeRight 事件
+					var evt = document.createEvent("CustomEvent");
+					evt.initCustomEvent("swipeLeft",true,true,{b:start.x - end.x});
+					div.dispatchEvent(evt);
+				}
+				
+			});
+			div.addEventListener("swipeRight",function(e){
+				console.info(e,"右滑一下,你滑过了"+e.detail.d+"个px");
+				console.info($("#p2").scrollLeft());
+				var pt_t = $("#p2").scrollLeft();
+				console.info(pt_t);
+				if(pt_t>750&&pt_t<1000){
+					console.info("750-1000");
+				}else if(pt_t>1000&&pt_t<1500){
+					console.info("1000-1500");
+				}else if(pt_t>=0&&pt_t<600){
+					console.info("upupup");
+					$(".arm2").addClass("up2");
+				}
+			})
+			div.addEventListener("swipeLeft",function(e){
+				console.info(e,"左滑一下,你滑过了"+e.detail.b+"个px");
+				console.info($("#p2").scrollLeft());
+				var pt_t = $("#p2").scrollLeft();
+				console.info(pt_t);
+				if(pt_t>750&&pt_t<1000){
+					console.info("750-1000");
+				}else if(pt_t>1000&&pt_t<1500){
+					console.info("1000-1500");
+				}else if(pt_t>=0&&pt_t<600){
+					console.info("upupup");
+					$(".arm2").removeClass("down2");
+					$(".arm2").addClass("up2");
+				}else if(pt_t>375){
+					console.info("upupup");
+					$(".arm2").removeClass("up2");
+					$(".arm2").addClass("down2");
+				}
+			})
+		</script>
+
+</html>
