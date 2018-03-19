@@ -1,0 +1,233 @@
+/*reset*/
+html, body, div, p, ul, li, dl, dt, dd, h1, h2, h3, h4, h5, h6, form, input, select, button, textarea, iframe, table, th, td, span{ margin: 0; padding: 0; }
+ul,li{ list-style: none; }
+a,img{ display: inline-block; *display: inline; }
+a{ text-decoration: none; }
+img{ vertical-align: top; border: none; }
+body{ -webkit-tap-highlight-color: transparent; }
+html,body{ width: 100%; height:100%; font-family: "Microsoft YaHei", Arial, Helvetica, sans-serif; }
+body{ -wibkit-touch-callout: none; -webkit-user-select: none; }
+/*loading*/
+.loading-wrap{
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    background: #E2231A;
+    z-index: 10001;
+}
+.loading-img{
+    width: 414px;
+    height: 171px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -75px;
+    bottom: 0;
+    margin: auto;
+    z-index: 100;
+    background: url("../img/loading.png") no-repeat;
+    -webkit-animation: loading 3s linear infinite;
+    -webkit-transform: rotateY(0deg);
+}
+@-webkit-keyframes loading{
+    0%{
+        -webkit-transform: rotateY(0deg);
+    }
+    30%{
+        -webkit-transform: rotateY(180deg);
+    }
+    70%{
+        -webkit-transform: rotateY(180deg);
+    }
+    100%{
+        -webkit-transform: rotateY(0deg);
+    }
+}
+/*-webkit-animation: loadingAni 3s steps(26,start) infinite;*/
+/*@-webkit-keyframes loadingAni{*/
+    /*0%{*/
+        /*background-position: 150px 0;*/
+    /*}*/
+    /*100%{*/
+        /*background-position: -3750px 0;*/
+    /*}*/
+/*}*/
+.loading-num{
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    position: absolute;
+    top: 165px;
+    bottom: 0;
+    margin: auto;
+    line-height: 30px;
+    color: #fff;
+    font-size: 24px;
+    z-index: 10;
+}
+.rotote-box{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: #FB0000 url(../img/rotate.png?v=4) no-repeat center center;
+    z-index: 2000;
+}
+/*内容页*/
+.main{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+.main.active{
+    -webkit-transform: rotate(90deg) translateX(-640px);
+}
+/*视频*/
+.video-box{
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: url(../img/video-bg.jpg?v=5) repeat;
+    overflow: hidden;
+}
+.video-end{
+    height: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+#video{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 50;
+}
+/*分享浮层*/
+.share-box{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 20;
+    pointer-events: none;
+}
+.btn-music{
+    width: 88px;
+    height: 88px;
+    position: absolute;
+    right: 28px;
+    top: 28px;
+    background: url(../img/musci_on.png) no-repeat;
+    pointer-events: all;
+}
+.btn-music.active{
+    -webkit-animation: musicAni 2s linear infinite;
+}
+@-webkit-keyframes musicAni{
+    0%{
+        -webkit-transform: rotate(0);
+    }
+    100%{
+        -webkit-transform: rotate(360deg);
+    }
+}
+.btn-enter{
+    width: 274px;
+    height: 83px;
+    position: absolute;
+    top: 480px;
+    /*background: rgba(0,0,0,0.8);*/
+    display: none;
+    left: 220px;
+    pointer-events: all;
+}
+.btn-share{
+    width: 274px;
+    height: 83px;
+    position: absolute;
+    top: 480px;
+    left: 550px;
+    display: none;
+    /*background: rgba(0,0,0,0.4);*/
+    pointer-events: all;
+}
+.share-wrap{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 20;
+    background: rgba(0,0,0,0.8);
+    display: none;
+    pointer-events: all;
+}
+.share-joy{
+    width: 212px;
+    height: 189px;
+    position: absolute;
+    top: 60px;
+    /*right: 40px;*/
+    background: url(../img/joy.png) no-repeat;
+    -webkit-animation: joy 1.5s linear infinite alternate;
+    -webkit-transform: translateY(0);
+}
+.share-font{
+    width: 161px;
+    height: 68px;
+    position: absolute;
+    top: 254px;
+    /*right: 65px;*/
+    background: url(../img/share-font.png) no-repeat;
+}
+.share-box.left .share-joy{
+    left: 40px;
+}
+.share-box.right .share-joy{
+    right: 40px;
+}
+.share-box.left .share-font{
+    left: 65px;
+}
+.share-box.right .share-font{
+    right: 65px;
+}
+@-webkit-keyframes joy {
+    0%{
+        -webkit-transform: translateY(0);
+    }
+    100%{
+        -webkit-transform: translateY(-30px);
+    }
+}
+/* for responsive ######################################################################################## responsive */
+@media (max-height: 980px) {
+    .scale {
+    	-webkit-transform: scale(0.9);
+    	-ms-transform: scale(0.9);
+        transform: scale(0.9);
+    } 
+}
+@media (max-height: 880px) {
+    .scale {
+    	-webkit-transform: scale(0.8);
+    	-ms-transform: scale(0.8);
+        transform: scale(0.8); 
+    } 
+}

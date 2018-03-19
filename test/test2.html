@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="./pixi.min.js"></script>
+
+		<script src="./lodash.min.js"></script>
+		<script src="./zepto.min.js"></script>
+		<script src="./pixi-display.js"></script>
+	</head>
+
+	<body>
+		pixi.js
+
+		<script>
+			var app = new PIXI.Application(1136, 640, {
+				backgroundColor: 0x1099bb
+			})
+			//			Container
+			var container = new PIXI.Container();
+			container.interactive = true;
+
+			var partBg = new PIXI.Container();
+			partBg.x = 0;
+			partBg.y = 0;
+			partBg.width = 3408;
+
+			// 线
+			var partBg1 = PIXI.Texture.fromImage('./img/cat.png');
+
+				//Change the sprite's position
+				partBg1.x = 96;
+				partBg1.y = 96;
+				
+			partBg.addChild(partBg1);
+			container.addChild(partBg);
+			app.stage.addChild(container);
+
+			// 线
+
+			document.body.appendChild(app.view);
+		</script>
+	</body>
+
+</html>

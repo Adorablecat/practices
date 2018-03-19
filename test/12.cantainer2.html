@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>容器与精灵</title>
+		<script type="text/javascript" src="pixi.min.js"></script>
+	</head>
+
+	<body>
+		<script>
+			var app = new PIXI.Application(640, 1136, {
+				backgroundColor: 0x1099bb
+			});
+			document.body.appendChild(app.view);
+
+			var container = new PIXI.Container();
+			app.stage.addChild(container);
+
+			var texture = PIXI.Texture.fromImage('./img/cat.png');
+			var texture1 = PIXI.Texture.fromImage('./img/joy.png');
+
+			var bunny = new PIXI.Sprite(texture,texture1);
+			container.addChild(bunny);
+			//          for(var i = 0; i < 25; i++) {  
+			//              var bunny = new PIXI.Sprite(texture);  
+			//              bunny.anchor.set(0.5);  
+			//              bunny.x = (i % 5) * 40;  
+			//              bunny.y = Math.floor(i / 5) * 40;  
+			//              container.addChild(bunny);  
+			//          }  
+			container.x = 0;
+			container.y = 0;
+			var bunny1 = new PIXI.Sprite(texture);
+			bunny1.x = 50;
+			bunny1.y = 50;
+			container.addChild(bunny1);
+			//容器containerOne添加bunny2显示对象  
+			var containerOne = new PIXI.Container();
+			containerOne.x = 50;
+			containerOne.y = 50;
+			var texture1 = PIXI.Texture.fromImage('./img/joy.png');
+
+			var bunny = new PIXI.Sprite(texture1);
+			var bunny2 = new PIXI.Sprite(texture);
+			bunny2.x = 200;
+			bunny2.y = 200;
+			containerOne.addChild(bunny2);
+			app.stage.addChild(containerOne);
+			//bunny1、bunny2虽然在不同容器中，然而容器container、containerOne都在同一渲染的Canvas对象内，故具有相同的参考系  
+			var p = new PIXI.Point(100, 100); //模拟舞台坐标,一般为0，0  
+			var r = bunny2.toLocal(p, bunny1); //bunny1在模拟舞台坐标100，100的基础上加上自身坐标，得到模拟坐标为150，150，与bunny2坐标(50+200，50+200)比较后，在距离bunny2的-100，-100方向  
+			console.log(r); // Point {x: -100, y: -100}
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="./pixi.min.js"></script>
+	</head>
+
+	<body>
+		<script>
+			var app = new PIXI.Application(640, 1136, {
+				backgroundColor: 0x1099bb
+			})
+			document.body.appendChild(app.view);
+
+			var bg = PIXI.Sprite.fromImage('./img/poster.jpg');
+			bg.width = app.renderer.width;
+			bg.height = app.renderer.height;
+			app.stage.addChild(bg);
+			var littleDudes = PIXI.Sprite.fromImage('./img/joy.png');
+			littleDudes.position.x = 100;
+			littleDudes.position.y = 100;
+			app.stage.addChild(littleDudes);
+			var blurFilter1 = new PIXI.filters.BlurFilter();
+			littleDudes.filters = [blurFilter1];
+			var count = 0;
+
+			app.ticker.add(function() {
+				count += 0.01;
+				var blurAmount = Math.cos(count);
+				blurFilter1.blur = 20 * (blurAmount);
+			});
+		</script>
+
+	</body>
+
+</html>

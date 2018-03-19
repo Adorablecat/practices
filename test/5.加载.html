@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="./pixi.min.js"></script>
+		<style>
+			* {
+				padding: 0;
+				margin: 0
+			}
+		</style>
+	</head>
+
+	<body>
+		<script>
+			PIXI.loader
+				.add([
+					"img/part/bg1.jpg",
+					"img/part/bg2.jpg",
+					"img/part/bg3.jpg"
+				])
+				.on("progress", loadProgressHandler)
+				.load(setup);
+
+			function loadProgressHandler(loader, resource) {
+
+				//Display the file `url` currently being loaded
+				console.log("loading: " + resource.url);
+
+				//Display the percentage of files currently loaded
+				console.log("progress: " + loader.progress + "%");
+
+				//If you gave your files names as the first argument
+				//of the `add` method, you can access them like this
+				//console.log("loading: " + resource.name);
+			}
+
+			function setup() {
+				console.log("All files loaded");
+			}
+		</script>
+		<script>
+		</script>
+	</body>
+
+</html>

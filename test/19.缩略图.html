@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="./FileSaver.js"></script>
+		<script src="./pixi.min.js"></script>
+		<script src="./FileSaver.min.js"></script>
+		
+	</head>
+
+	<body>
+		<script>
+			var app = new PIXI.Application(800, 500, {
+				backgroundColor: 0x1099bb
+			});
+			document.body.appendChild(app.view);
+			//加载图片资源  
+			var loader = new PIXI.loaders.Loader();
+			loader.add('sprite', './img/poster.jpg');
+			loader.on("progress", function(target, resource) {
+				console.log("progress:", target.progress);
+			});
+			loader.once('complete', function(target, resource) {
+				onComplete(target, resource);
+			});
+			loader.load();
+			//资源加载完成  
+			function onComplete(target, resource) {
+				var sprite = new PIXI.Sprite(resource.sprite.texture);
+				var container = new PIXI.Container();
+				container.addChild(sprite);
+				app.stage.addChild(container); //添加至舞台  
+				app.renderer.render(app.stage); //舞台手动渲染  
+
+				//保存图片至本地  
+				var imageData = app.view.toDataURL("image/png");
+				var blobImg = convertBase64UrlToBlob(imageData);
+				saveAs(blobImg, "blobImg.png");
+			}
+
+			/** 
+			 * 将Base64数据格式转换为Blob数据格式 
+			 */
+			function convertBase64UrlToBlob(urlData) {
+				var bytes = window.atob(urlData.split(',')[1]); //去掉url的头，并转换为byte  
+				//处理异常,将ascii码小于0的转换为大于0  
+				var ab = new ArrayBuffer(bytes.length);
+				var ia = new Uint8Array(ab);
+				for(var i = 0; i < bytes.length; i++) {
+					ia[i] = bytes.charCodeAt(i);
+				}
+				return new Blob([ab], {
+					type: 'image/png'
+				});
+			}
+		</script>
+
+	</body>
+
+</html>

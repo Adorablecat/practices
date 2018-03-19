@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="./pixi.min.js"></script>
+	</head>
+
+	<body>
+		<script>
+			var app = new PIXI.Application(640, 1136, {
+				backgroundColor: 0x1099bb
+			});
+			document.body.appendChild(app.view);
+			//创建粒子容器  
+			var sprites = new PIXI.particles.ParticleContainer(10000, {
+				scale: true,
+				position: true,
+				rotation: true,
+				uvs: true,
+				alpha: true
+			});
+			app.stage.addChild(sprites);
+
+			//创建粒子  
+			var totalSprites = app.renderer instanceof PIXI.WebGLRenderer ? 10000 : 100;
+			for(var i = 0; i < totalSprites; i++) {
+				var dude = PIXI.Sprite.fromImage('./img/cat.png');
+				//设置中心点  
+				dude.anchor.set(0.5);
+				//设置不同缩放值  
+				dude.scale.set(0.8 + Math.random() * 0.3);
+				// 随机出现位置  
+				dude.x = Math.random() * app.renderer.width;
+				dude.y = Math.random() * app.renderer.height;
+				// 设置不同的颜色  
+				dude.tint = Math.random() * 0x808080;
+				//添加到粒子容器中  
+				sprites.addChild(dude);
+			}
+		</script>
+	</body>
+
+</html>

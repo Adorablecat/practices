@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="./pixi.min.js"></script>
+		<style>
+			* {
+				padding: 0;
+				margin: 0
+			}
+		</style>
+	</head>
+
+	<body>
+		<img src="./img/tileset.png" alt="" />
+		<script>
+			//Create a Pixi Application
+			var app = new PIXI.Application({
+				width: 256,
+				height: 256,
+				antialias: true,
+				transparent: false,
+				resolution: 1
+			});
+
+			//Add the canvas that Pixi automatically created for you to the HTML document
+			document.body.appendChild(app.view);
+
+			//load an image and run the `setup` function when it's done
+			PIXI.loader
+				.add("img/tileset.png")
+				.load(setup);
+
+			//This `setup` function will run when the image has loaded
+			function setup() {
+//				别名
+				var TextureCache = PIXI.utils.TextureCache;
+				//Create the `tileset` sprite from the texture
+				var texture = TextureCache["img/tileset.png"];
+
+				//Create a rectangle object that defines the position and
+				//size of the sub-image you want to extract from the texture
+				//(`Rectangle` is an alias for `PIXI.Rectangle`)
+//				别名
+				var Rectangle = PIXI.Rectangle;
+				var rectangle = new Rectangle(192, 128, 64, 64);
+
+				//Tell the texture to use that rectangular section
+				texture.frame = rectangle;
+
+				//Create the sprite from the texture
+				var rocket = new Sprite(texture);
+
+				//Position the rocket sprite on the canvas
+				rocket.x = 32;
+				rocket.y = 32;
+
+				//Add the rocket to the stage
+				app.stage.addChild(rocket);
+
+				//Render the stage   
+				renderer.render(stage);
+			}
+		</script>
+		<script>
+		</script>
+	</body>
+
+</html>

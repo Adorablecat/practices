@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>容器与精灵</title>
+		<script type="text/javascript" src="pixi.min.js"></script>
+	</head>
+
+	<body>
+		<script>
+			var app = new PIXI.Application(640, 1136, {
+				backgroundColor: 0x1099bb
+			});
+			document.body.appendChild(app.view);
+
+			var textureButton = PIXI.Texture.fromImage('./img/musci_on.png');
+			var textureButtonDown = PIXI.Texture.fromImage('./img/musci_off.png');
+			var textureButtonOver = PIXI.Texture.fromImage('./img/cat.png');
+
+			var button = new PIXI.Sprite(textureButton);
+			button.buttonMode = true;
+			button.interactive = true;
+
+			button.on('pointerdown', onButtonDown)
+				.on('pointerup', onButtonUp)
+				.on('pointerupoutside', onButtonUp)
+				.on('pointerover', onButtonOver)
+				.on('pointerout', onButtonOut);
+			app.stage.addChild(button);
+
+			function onButtonDown() {
+				this.isdown = true;
+				this.texture = textureButtonDown;
+				this.alpha = 1;
+			}
+
+			function onButtonUp() {
+//				this.isdown = false;
+//				if(this.isOver) {
+//					this.texture = textureButtonOver;
+//				} else {
+//					this.texture = textureButton;
+//				}
+alert("buttonup");
+			}
+
+			function onButtonOver() {
+//				this.isOver = true;
+//				if(this.isdown) {
+//					return;
+//				}
+//				this.texture = textureButtonOver;
+console.log("buttonover")
+			}
+
+			function onButtonOut() {
+//				this.isOver = false;
+//				if(this.isdown) {
+//					return;
+//				}
+//				this.texture = textureButton;
+console.log("buttonout")
+			}
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="./pixi.min.js"></script>
+
+		<script src="./lodash.min.js"></script>
+		<script src="./zepto.min.js"></script>
+		<script src="./pixi-display.js"></script>
+		<script src="TweenMax.min.js"></script>
+	</head>
+
+	<body>
+		pixi.js
+
+		<script>
+			var titleShow = true;
+			var scrollVal = {};
+			var scrollLast = true;
+			scrollVal.num = 6000;
+			$(document).bind("touchmove", function(e) {
+				e.preventDefault();
+			});
+			var imgArr = [
+				"img/loading.png",
+				"img/musci_off.png",
+				"img/musci_on.png",
+				"img/poster.jpg",
+				"img/rotate.png?v=3",
+				"img/title.png",
+				"img/share-font.png",
+				"img/video-end.jpg",
+				"img/part1/bg1.jpg",
+				"img/part1/bg2.jpg",
+				"img/part1/bg3.jpg",
+				"img/part1/bg3.png",
+				"img/part1/biao.png",
+				"img/part1/putao.png",
+				"img/part1/sijin.png",
+				"img/part1/xiangshuihe.png",
+				"img/part2/sha1.png",
+				"img/part2/sha2.png",
+				"img/part2/sha3.png",
+				"img/part2/sha4.png",
+				"img/part2/sha5.png",
+				"img/part3/h0.png",
+				"img/part3/h1.png",
+				"img/part3/h10.png",
+				"img/part3/h11.png",
+				"img/part3/h12.png",
+				"img/part3/h2.png",
+				"img/part3/h3.png",
+				"img/part3/h4.png",
+				"img/part3/h5.png",
+				"img/part3/h6.png",
+				"img/part3/h7.png",
+				"img/part3/h8.png",
+				"img/part3/h9.png",
+				"img/part3/m0.png",
+				"img/part3/m1.png",
+				"img/part3/m10.png",
+				"img/part3/m11.png",
+				"img/part3/m12.png",
+				"img/part3/m2.png",
+				"img/part3/m3.png",
+				"img/part3/m4.png",
+				"img/part3/m5.png",
+				"img/part3/m6.png",
+				"img/part3/m7.png",
+				"img/part3/m8.png",
+				"img/part3/m9.png",
+				"img/part3/s0.png",
+				"img/part3/s1.png",
+				"img/part3/s10.png",
+				"img/part3/s11.png",
+				"img/part3/s12.png",
+				"img/part3/s2.png",
+				"img/part3/s3.png",
+				"img/part3/s4.png",
+				"img/part3/s5.png",
+				"img/part3/s6.png",
+				"img/part3/s7.png",
+				"img/part3/s8.png",
+				"img/part3/s9.png",
+				"img/part3/x0.png",
+				"img/part3/x1.png",
+				"img/part3/x10.png",
+				"img/part3/x11.png",
+				"img/part3/x12.png",
+				"img/part3/x2.png",
+				"img/part3/x3.png",
+				"img/part3/x4.png",
+				"img/part3/x5.png",
+				"img/part3/x6.png",
+				"img/part3/x7.png",
+				"img/part3/x8.png",
+				"img/part3/x9.png",
+				"img/part3/y0.png",
+				"img/part3/y1.png",
+				"img/part3/y10.png",
+				"img/part3/y11.png",
+				"img/part3/y12.png",
+				"img/part3/y2.png",
+				"img/part3/y3.png",
+				"img/part3/y4.png",
+				"img/part3/y5.png",
+				"img/part3/y6.png",
+				"img/part3/y7.png",
+				"img/part3/y8.png",
+				"img/part3/y9.png",
+				"img/part4/b0.png",
+				"img/part4/b1.png",
+				"img/part4/b10.png",
+				"img/part4/b11.png",
+				"img/part4/b12.png",
+				"img/part4/b13.png",
+				"img/part4/b14.png",
+				"img/part4/b15.png",
+				"img/part4/b16.png",
+				"img/part4/b2.png",
+				"img/part4/b3.png",
+				"img/part4/b4.png",
+				"img/part4/b5.png",
+				"img/part4/b6.png",
+				"img/part4/b7.png",
+				"img/part4/b8.png",
+				"img/part4/b9.png",
+				"img/part4/biao.png?v=1",
+				"img/part4/zhen.png",
+				"img/part4/joy.png",
+				"img/part4/line.png",
+				"img/part4/s0.png",
+				"img/part4/s1.png",
+				"img/part4/s10.png",
+				"img/part4/s11.png",
+				"img/part4/s12.png",
+				"img/part4/s13.png",
+				"img/part4/s14.png",
+				"img/part4/s15.png",
+				"img/part4/s16.png",
+				"img/part4/s17.png",
+				"img/part4/s18.png",
+				"img/part4/s19.png",
+				"img/part4/s2.png",
+				"img/part4/s20.png",
+				"img/part4/s21.png",
+				"img/part4/s22.png",
+				"img/part4/s23.png",
+				"img/part4/s24.png",
+				"img/part4/s3.png",
+				"img/part4/s4.png",
+				"img/part4/s5.png",
+				"img/part4/s6.png",
+				"img/part4/s7.png",
+				"img/part4/s8.png",
+				"img/part4/s9.png",
+				"img/part4/xiangshui.png",
+				"img/part4/yizi.png",
+				"img/part6/biao.png",
+				"img/part6/btn-enter.png",
+				"img/part6/btn-share.png",
+				"img/part6/jiu.png",
+				"img/part6/ke.png",
+				"img/part6/logo0.png",
+				"img/part6/logo1.png",
+				"img/part6/logo10.png",
+				"img/part6/logo11.png",
+				"img/part6/logo12.png",
+				"img/part6/logo13.png",
+				"img/part6/logo14.png",
+				"img/part6/logo15.png",
+				"img/part6/logo16.png",
+				"img/part6/logo17.png",
+				"img/part6/logo18.png",
+				"img/part6/logo19.png",
+				"img/part6/logo2.png",
+				"img/part6/logo20.png",
+				"img/part6/logo21.png",
+				"img/part6/logo22.png",
+				"img/part6/logo23.png",
+				"img/part6/logo24.png",
+				"img/part6/logo25.png",
+				"img/part6/logo26.png",
+				"img/part6/logo27.png",
+				"img/part6/logo28.png",
+				"img/part6/logo29.png",
+				"img/part6/logo3.png",
+				"img/part6/logo30.png",
+				"img/part6/logo31.png",
+				"img/part6/logo32.png",
+				"img/part6/logo33.png",
+				"img/part6/logo34.png",
+				"img/part6/logo35.png",
+				"img/part6/logo36.png",
+				"img/part6/logo37.png",
+				"img/part6/logo38.png",
+				"img/part6/logo39.png",
+				"img/part6/logo4.png",
+				"img/part6/logo40.png",
+				"img/part6/logo41.png",
+				"img/part6/logo42.png",
+				"img/part6/logo43.png",
+				"img/part6/logo44.png",
+				"img/part6/logo45.png",
+				"img/part6/logo46.png",
+				"img/part6/logo47.png",
+				"img/part6/logo48.png",
+				"img/part6/logo49.png",
+				"img/part6/logo5.png",
+				"img/part6/logo6.png",
+				"img/part6/logo7.png",
+				"img/part6/logo8.png",
+				"img/part6/logo9.png",
+				"img/part6/mu.png",
+				"img/part6/xiang.png"
+			];
+
+			function pixiFn() { //创建PIXI事件函数
+				app = new PIXI.Application(1040, 640, {
+					backgroundColor: '0x242329'
+				});
+				$("body").append(app.view);
+				// display
+				app.stage.displayList = new PIXI.DisplayList();
+				var index1 = new PIXI.DisplayGroup(1, false);
+
+				// 预加载
+				var loader = new PIXI.loaders.Loader();
+				loader.add(imgArr);
+
+				loader.onProgress.add(function(e) {
+
+					$('.loading-num').text(Math.round(e.progress) + '%');
+
+				});
+
+				container = new PIXI.Container();
+				container.interactive = true;
+
+				loader.load(function(loader) {
+
+					// 背景
+					var partBg = new PIXI.Container();
+					partBg.x = 0;
+					partBg.y = 0;
+					partBg.width = 3408;
+					// 线
+					var partBg1 = createSprite("img/part1/bg1.jpg", {
+						x: 0,
+						y: 0
+					});
+					var partBg2 = createSprite("img/part1/bg2.jpg", {
+						x: 4086,
+						y: 0
+					});
+					var partBg4 = createSprite("img/part1/bg3.jpg", {
+						x: 6809,
+						y: 0
+					});
+					var partBg3 = createSprite("img/part1/bg3.png", {
+						x: 6809,
+						y: 0
+					});
+					partBg.addChild(partBg1, partBg2, partBg4, partBg3);
+
+					// 后景
+					var part1 = new PIXI.Container();
+					part1.x = 0;
+					part1.y = 0;
+					// 手表
+					part1Biao = createSprite("img/part1/biao.png", {
+						x: 1303,
+						y: 461
+					});
+					// 葡萄
+					part1Putao = createSprite("img/part1/putao.png", {
+						x: 2635,
+						y: 155
+					});
+					// 丝巾
+					part1Sijin = createSprite("img/part1/sijin.png", {
+						x: 3899,
+						y: 393
+					});
+					// 香水盒
+					part1Xiangshui = createSprite("img/part1/xiangshuihe.png", {
+						x: 5912,
+						y: -186
+					});
+
+					part1.addChild(part1Biao, part1Putao, part1Sijin, part1Xiangshui);
+
+					// 金沙
+					var part2 = new PIXI.Container();
+					part2.x = 0;
+					part2.y = 0;
+					part2Sha1 = createSprite("img/part2/sha1.png", {
+						x: -198,
+						y: 0
+					});
+					part2Sha2 = createSprite("img/part2/sha2.png", {
+						x: 1307,
+						y: 0
+					});
+					part2Sha3 = createSprite("img/part2/sha3.png", {
+						x: 2458,
+						y: 117
+					});
+					part2Sha4 = createSprite("img/part2/sha4.png", {
+						x: 4073,
+						y: 58
+					});
+					part2Sha5 = createSprite("img/part2/sha5.png", {
+						x: 4915,
+						y: 101
+					});
+					part2.addChild(part2Sha1, part2Sha2, part2Sha3, part2Sha4, part2Sha5);
+
+					// 文字
+					var part3 = new PIXI.Container();
+					part3.x = 0;
+					part3.y = 0;
+
+					// 好的手表
+					part3ShoubiaoCon = new PIXI.Container();
+					part3ShoubiaoCon.x = 1127 - 42;
+					part3ShoubiaoCon.y = 329 - 42;
+
+					// 好的椅子
+					part3YiziCon = new PIXI.Container();
+					part3YiziCon.x = 2139 - 42;
+					part3YiziCon.y = 458 - 42;
+
+					// 前景
+					var part6 = new PIXI.Container();
+					part6.x = 0;
+					part6.y = 0;
+					// part6.alpha = 0;
+					// 表
+					part6Biao = createSprite("img/part6/biao.png", {
+						x: 15,
+						y: 246
+					});
+					// 模具
+					part6Mu = createSprite("img/part6/mu.png", {
+						x: 1400,
+						y: -297
+					});
+					// 刻刀
+					part6Ke = createSprite("img/part6/ke.png", {
+						x: 2550,
+						y: 333
+					});
+					// 红酒
+					part6Jiu = createSprite("img/part6/jiu.png", {
+						x: 3300,
+						y: -82
+					});
+					// 香水
+					part6Xiang = createSprite("img/part6/xiang.png", {
+						x: 6159,
+						y: 139
+					});
+					part6.addChild(part6Biao, part6Mu, part6Ke, part6Jiu, part6Xiang);
+
+					// 按钮 + logo
+					var part7 = new PIXI.Container();
+					part7.x = 6809;
+					part7.y = 0;
+
+					container.addChild(partBg, part2, part1, part3, part7);
+
+					// 提示信息
+					container2 = new PIXI.Container();
+					var title = createSprite("img/title.png", {
+						x: 360,
+						y: 200
+					});
+					container2.addChild(title);
+					app.stage.addChild(container, container2);
+					container.on("pointerdown", function() {
+						if(titleShow) {
+							TweenMax.fromTo(container2, 0.6, {
+								alpha: 1
+							}, {
+								alpha: 0,
+								onComplete: function() {
+									container2.visible = false;
+								}
+							});
+							titleShow = false;
+						}
+					});
+
+					// scrollTicker = new PIXI.ticker.Ticker();
+					// scrollTicker.stop();
+					// scrollTicker.add(function(){
+					//
+					// });
+				});
+			}
+			// 创建sprite对象
+			function createSprite(name, opt) {
+				var newSprite = new PIXI.Sprite.fromImage(name);
+
+				if(opt) {
+					_.forIn(opt, function(value, key) {
+						newSprite[key] = value;
+
+					});
+				}
+				return newSprite;
+			}
+			// 区间最小值, 区间最大值, top, 初始位置, 终点, 速度, 方向
+			function scrollNum(minNum, maxNum, top, start, end) {
+				return start + ((top - minNum) / (maxNum - minNum) * (end - start));
+			}
+
+			// 滚动
+			pixiFn();
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>容器与精灵</title>
+		<script type="text/javascript" src="pixi.min.js"></script>
+	</head>
+
+	<body>
+		<script>
+			var app = new PIXI.Application(640, 1136, {
+				backgroundColor: 0x1099bb
+			});
+			document.body.appendChild(app.view);
+			var texture = PIXI.Texture.fromImage('./img/cat.png');
+			var bunny = new PIXI.Sprite(texture);
+			bunny.interactive = true;
+			bunny.buttonMode = true;
+			bunny.anchor.set(0.5);
+			bunny.position.set(100, 100);
+			bunny.scale.set(2);
+			bunny.on('pointerdown', onDragStart)
+				.on('pointerup', onDragEnd)
+				.on('pointerupoutside', onDragEnd)
+				.on('pointermove', onDragMove);
+			app.stage.addChild(bunny);
+
+			function onDragStart(event) {
+				this.data = event.data;
+				this.alpha = 0.5;
+				this.dragging = true;
+			}
+
+			function onDragEnd(event) {
+				this.alpha = 1;
+				this.dragging = false;
+				this.data = null;
+			}
+
+			function onDragMove(event) {
+				if(this.dragging) {
+					var newPosition = this.data.getLocalPosition(this.parent); //获取鼠标移动的位置  
+					this.position.x = newPosition.x;
+					this.position.y = newPosition.y;
+				}
+			}
+		</script>
+	</body>
+
+</html>
