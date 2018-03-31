@@ -1,0 +1,123 @@
+/*--flexisel--*/
+.trending-ads {
+    padding: 70px 0px;
+}
+.flex-slider{	
+	background:#242a2c;
+	padding:100px 0;
+}
+
+#flexiselDemo1 {
+	display: none;
+}
+.nbs-flexisel-container {
+	position: relative;
+	max-width: 100%;
+}
+.nbs-flexisel-ul {
+	position: relative;
+	width: 9999px;
+	margin: 0px;
+	padding: 0px;
+	list-style-type: none;
+	text-align: center;
+}
+.nbs-flexisel-inner {
+	overflow: hidden;
+	margin: 0px auto;
+}
+.nbs-flexisel-item {
+	float: left;
+	margin: 0;
+	padding: 0px;
+	cursor: pointer;
+	position: relative;
+	line-height: 0px;
+}
+.nbs-flexisel-item > img {
+	cursor: pointer;
+	position: relative;
+}
+/*---- Nav ---*/
+.nbs-flexisel-nav-left, .nbs-flexisel-nav-right {
+	width:20px;
+	height:40px;
+	position: absolute;
+	cursor: pointer;
+	z-index: 100;
+}
+.nbs-flexisel-nav-left {
+	left: -45px;
+	top: 38% !important;
+	background: url(../images/themes1.png) no-repeat 1px 3px;
+}
+.nbs-flexisel-nav-right {
+	right: -45px;
+	top: 38% !important;
+	background: url(../images/themes1.png) no-repeat -23px 3px;
+}
+ul#flexiselDemo3.nbs-flexisel-nav-left, ul#flexiselDemo3.nbs-flexisel-nav-right {
+	width:26px;
+	height:44px;
+	position: absolute;
+	cursor: pointer;
+	z-index: 100;
+	display:none;
+}
+.biseller-column img {
+    width: 100%;
+	position:relative;
+	border:1px solid #F9F9F9;
+	box-shadow: 0 0 10px #F9F9F9;
+	-webkit-box-shadow: 0 0 10px #F9F9F9;
+	-moz-box-shadow: 0 0 10px #F9F9F9;
+	box-shadow: 0 0 10px #F9F9F9;
+}
+.biseller-column a {
+    display: block;
+	padding-top: 5px;
+}
+.trend-ads {
+    width: 90%;
+    margin: 0 auto;
+}
+
+
+/*--//flexisel--*/
+@media (max-width: 1080px){
+	.carousel-caption p{
+		font-size:16px !important;
+	}
+	.col-md-3.biseller-column{
+		padding: 0 10px;
+	}
+
+}
+@media (max-width: 991px){
+	.carousel-caption p{
+		font-size:16px;
+	}
+	.col-md-3.biseller-column{
+		width:33.333%;
+		float:left;
+	}
+	.col-md-3.biseller-column:nth-child(4){
+		display:none;
+	}
+}
+@media (max-width: 640px){
+	.carousel-caption p{
+		font-size:16px !important;
+	}
+	.col-md-3.biseller-column {
+		padding: 0 8px;
+	}
+}
+@media (max-width: 480px){
+	.col-md-3.biseller-column {
+		width:50%;
+	}
+	.col-md-3.biseller-column:nth-child(3){
+		display:none;
+	}
+}

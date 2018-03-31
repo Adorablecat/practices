@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- 引入核心css文件 -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <!--引入jquery文件  -->
+    <script src="js/jquery-1.11.3.min.js" charset="utf-8"></script>
+    <!-- 引入核心js文件 -->
+    <script src="js/bootstrap.js" charset="utf-8"></script>
+    <style>
+    	html,body{
+    		margin:0;
+    		padding:0;
+    	}
+    	.vid-wraper {
+    		width:100%;
+    		position:relative;
+    	}
+    	.bg-wht {
+    		background-color: #fff !important;
+    	}
+    	.navbar {
+    		margin-bottom: 1px;
+    	}
+    	.navbar-default {
+	    	background-color: #fff;
+	    }
+    	
+    	
+    	.navbar-default .navbar-brand {
+		    color: #777;
+		    height:80px;
+		    
+		}
+		.navbar-toggle {
+			margin-top: 23px;
+		}
+		/*---------*/
+		.container h2 {
+			color:red;
+		}
+		/*.introduction .col-md-5,.introduction .col-md-7 {
+			padding:0;
+		}*/
+		.introduction-row {
+			margin-top: 20px;			
+		}
+		.introduction-row p {
+			margin:0 !important;
+			text-indent:2em;
+			line-height: 20px;
+		}
+		.introduction-row .btn {
+			margin-top: 10px ;
+		}
+		.introduction img {
+			width:100% !important;
+			height:100%;
+		}
+		/*-------------*/
+		.synopsis {
+			margin: 10px auto;
+		}
+		.synopsis p {
+			text-indent:2em;
+		}
+		/*----------------*/
+		.thumbnail {
+			border:0px ;
+			background-color: #eaeaea;
+		}
+		.thumbnail img {
+			border-radius:50%;
+		}
+		/*------------*/
+		.footer{
+			margin-top: 20px;
+			padding-top: 10px;
+			background-color: #323232;
+			color:white;
+		}
+    </style>
+</head>
+<body>
+	<!---------------navbar------------------>
+	<nav class="navbar navbar-default">
+	  <div class="container">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu" aria-expanded="false">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+		     <a href="#" class="navbar-brand navbar-logo vertical-align" title="和秀官网">
+	        	<div class="vertical-align-middle"><img src="img/brand.png" alt="和秀官网" title="和秀官网" /></div>
+	        </a>
+	    </div>
+	
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="menu">
+	      <ul class="nav navbar-nav navbar-right">
+	        <li class="active"><a href="#">企业介绍 <span class="sr-only">(current)</span></a></li>
+	        <li><a href="#">关于和秀</a></li>
+	        <li><a href="">产品中心</a></li>
+			<li><a href="">应用案例</a></li>
+			<li><a href="">和秀之家</a></li>
+			<li><a href="">联系我们</a></li>
+	      </ul>
+	      
+	      
+	    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+	<!-------轮播-------carousel----------->
+	<div class="ctn">
+		<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+		  <!-- Indicators -->
+		  <ol class="carousel-indicators">
+		    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+		    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+		    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+		  </ol>
+		
+		  <!-- Wrapper for slides -->
+		  <div class="carousel-inner" role="listbox">
+		    <div class="item active">
+		      <img src="./img/banner1.jpg" alt="...">
+		      <div class="carousel-caption">
+		        ...
+		      </div>
+		    </div>
+		    <div class="item">
+		      <img src="./img/banner2.jpg" alt="...">
+		      <div class="carousel-caption">
+		        ...
+		      </div>
+		    </div>
+		    <div class="item">
+		      <img src="./img/banner3.jpg" alt="...">
+		      <div class="carousel-caption">
+		        ...
+		      </div>
+		    </div>
+		    
+		  </div>
+		
+		  <!-- Controls -->
+		  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+		    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+		    <span class="sr-only">Previous</span>
+		  </a>
+		  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+		    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+		    <span class="sr-only">Next</span>
+		  </a>
+		</div>
+	</div>
+	
+	<!------关于和秀-------->
+	<div class="jumbotron" >
+		<div class="container">
+			<h2 class="text-center">ABOUT HESIO</h2>
+			<p class="text-center">—— 关于和秀 ——</p>
+			<img src="./img/banner3.jpg" alt="" class="img-responsive" />
+			<div class="synopsis">
+				<p>和秀涂料是冠隆旗下（中日合资）的精品家具涂料品牌。我们采用了先进的生产技术与管理理念，为涂料行业在“高透、无味、高硬”等方面树立行业标杆。</p>
+				<p>2017年，和秀产品首次亮相于天津梅江会展，就以其卓越的品质和突出的特点吸引了大量专业人士莅临现场，热情高涨，十分热闹，更是获得了业内人士的一致好评和认可。我们也收获了一大批对产品高要求，高水准的客户，与和秀一起坚持以人为本的原则，走可持续发展的道路。</p>
+				<button class="btn  btn-danger">>了解更多</button>
+				
+			</div>
+			
+		</div>
+	</div>
+	<div class="jumbotron bg-wht">
+		<div class="container">
+			<h2 class="text-center">STORY</h2>
+			<p class="text-center">——品牌故事 ——</p>
+			<div class="row ">
+				<div class="col-md-5 col-xs-12">	<img class="img-responsive" src="./img/introduction.png" alt="" / style="width:auto"></div>
+				<div class="col-md-7">	
+					<p>和秀涂料是全国第一家互联网涂料品牌——不仅采用了先进的生产技术来提升产品品质，更是首次将互联网思维与涂料行业相结合。</p>
+					<p>我们与全国顶尖的移动社交电商达成长期的战略合作，为客户提供包括涂料产品和互联网营销服务在内的全环节解决方案：以优质的涂料产品来提升家具的品质，并以专业的营销服务去展示它们的价值。</p>
+					<div class="row text-center">
+						<div class="col-md-3 col-xs-6 "><span><strong class="h1">9.5</strong>万</span><p class="text-cnter">成功案例</p></div>
+						<div class="col-md-3 col-xs-6"><span><strong class="h1">9.5</strong>万</span><p class="text-cnter">成功案例</p></div>
+						<div class="col-md-3 col-xs-6"><span><strong class="h1">9.5</strong>万</span><p class="text-cnter">成功案例</p></div>
+						<div class="col-md-3 col-xs-6"><span><strong class="h1">9.5</strong>万</span><p class="text-cnter">成功案例</p></div>
+						
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	
+	<!--------------------------------->
+	<!------企业使命-------->
+	<div class="jumbotron" >
+		<div class="container">
+			<h2 class="text-center">MISSION</h2>
+			<p class="text-center">——品牌使命 ——</p>
+			
+			<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+		  
+			  <div class="carousel-inner" role="listbox">
+			    <div class="item active">
+			      <img src="./img/will2.png" alt="...">
+			      <div class="carousel-caption">
+			        <p class="h2">通过优质的产品和全面的服务</p>  
+	                <p class="h2">让客户的品牌和产品更有价值</p>  
+	              </div>
+			    </div>
+			  </div>
+		
+			</div>
+			
+		</div>
+	</div>
+	<!--------------------------------->
+	<div class="jumbotron bg-wht">
+		<div class="container">
+			<h2 class="text-center">HESIO VIDEO</h2>
+			<p class="text-center">——品牌使命 ——</p>
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="vid-wraper">
+						<video width="100%" height="100%" poster="./img/introduction.png" src=""></video>
+					</div>
+				</div>
+			</div>
+			<div class="row" style="margin-top:10px;">
+				<div class="col-md-3 col-xs-6" style="margin:5px 0px"><img class="img-responsive" src="./img/introduction.png" alt="" /></div>
+				<div class="col-md-3 col-xs-6" style="margin:5px 0px"><img class="img-responsive" src="./img/introduction.png" alt="" /></div>
+				<div class="col-md-3 col-xs-6" style="margin:5px 0px"><img class="img-responsive" src="./img/introduction.png" alt="" /></div>
+				<div class="col-md-3 col-xs-6" style="margin:5px 0px"><img class="img-responsive" src="./img/introduction.png" alt="" /></div>
+			</div>
+			
+		</div>
+		
+	</div>
+	
+	<!-----------footer-------------->
+	<div class="footer">
+		<div class="container">
+        
+        <div class="col-md-7">
+            <div class="row">
+                <div class="col-md-2 col-xs-4">
+                    <dl>
+                        <dt>产品中心</dt>
+                        <dd><a href="">关于我们</a></dd>
+                        <dd><a href="">广告合作</a></dd>
+                        <dd><a href="">友情链接</a></dd>
+                        <dd><a href="">招聘</a></dd>
+                    </dl>
+                </div>
+                <div class="col-md-2 col-xs-4">
+                    <dl>
+                        <dt>产品中心</dt>
+                        <dd><a href="">关于我们</a></dd>
+                        <dd><a href="">广告合作</a></dd>
+                        <dd><a href="">友情链接</a></dd>
+                        <dd><a href="">招聘</a></dd>
+                    </dl>
+                </div>
+                <div class="col-md-2 col-xs-4">
+                    <dl>
+                        <dt>产品中心</dt>
+                        <dd><a href="">关于我们</a></dd>
+                        <dd><a href="">广告合作</a></dd>
+                        <dd><a href="">友情链接</a></dd>
+                        <dd><a href="">招聘</a></dd>
+                    </dl>
+                </div>
+                <div class="col-md-2 col-xs-4">
+                    <dl>
+                        <dt>关于</dt>
+                        <dd><a href="">关于我们</a></dd>
+                        <dd><a href="">广告合作</a></dd>
+                        <dd><a href="">友情链接</a></dd>
+                        <dd><a href="">招聘</a></dd>
+                    </dl>
+                </div>
+                <div class="col-md-2 col-xs-4">
+                    <dl>
+                        <dt>关于</dt>
+                        <dd><a href="">关于我们</a></dd>
+                        <dd><a href="">广告合作</a></dd>
+                        <dd><a href="">友情链接</a></dd>
+                        <dd><a href="">招聘</a></dd>
+                    </dl>
+                </div>
+                <div class="col-md-2 col-xs-4">
+                    <dl>
+                        <dt>关于</dt>
+                        <dd><a href="">关于我们</a></dd>
+                        <dd><a href="">广告合作</a></dd>
+                        <dd><a href="">友情链接</a></dd>
+                        <dd><a href="">招聘</a></dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+		<div class="col-md-5">
+			<h4 class="text-center">微信扫一扫，关注我们</h4>
+			<div class="row text-center">
+				<div class="col-xs-6">
+					<img src="./img/wx1.jpg" alt="" style="width:80px;"/>
+					<p >和秀涂料</p>
+				</div>
+				<div class="col-xs-6">
+					<img src="./img/wx2.jpg" alt="" style="width:80px;"/>
+					<p >冠隆涂料</p>
+				</div>
+			</div>
+        </div>
+        
+    	</div>
+    	<p class="text-center">
+            <a href="">京ICP备11008151号</a> | 京公网安备11010802014853
+        </p>
+	</div>
+	
+</body>
+</html>

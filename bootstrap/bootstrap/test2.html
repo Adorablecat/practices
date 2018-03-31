@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- 引入核心css文件 -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <!--引入jquery文件  -->
+    <script src="js/jquery-1.11.3.min.js" charset="utf-8"></script>
+    <!-- 引入核心js文件 -->
+    <script src="js/bootstrap.js" charset="utf-8"></script>
+    <style>
+    	#content-sec3 {  
+    position: relative;  
+    max-width: 100%;  
+    height: auto;      
+    background-size: 100% auto;     
+    text-align: center;  
+}  
+  
+    #content-sec3 .title {  
+        margin-top:5px;  
+        font-family: 微软雅黑;  
+        font-size: 20px;  
+        color: #333333;  
+    }  
+  
+    #content-sec3 .title-sub-line {  
+        margin-top:15px;  
+        margin-bottom: 18px;  
+        font-family: 微软雅黑;  
+        font-size: 12px;  
+        color: #CCCCCC;  
+        text-align: center;  
+    }  
+  
+    #content-sec3 .title-more {  
+        margin-bottom: 10px;  
+        font-family: 微软雅黑;  
+        font-size: 12px;  
+        color: #2E84E9;  
+        text-align: center;  
+        cursor:pointer;  
+    }  
+    </style>
+</head>
+<body>
+	<div class="container">
+		<div id="content-sec3">  
+            <img class="img-responsive" src="./img/will2.png" />  
+            <div id="content-sec3-adjust" style="position: absolute; top: 0; left: 50%;">  
+                <h2>坚持生产更好的涂料 </h2>  
+                <h2> 坚持提供一流的服务 </h2>  
+                <h2>除此之外</h2>  
+                <h2>我们没有其他什么事情可以做</h2>
+            </div>  
+        </div>  
+	</div>
+
+<script>
+	var init = function () {  
+           var _bg3width = $("#content-sec3-adjust").width();  
+           $("#content-sec3-adjust").css("margin-left", _bg3width * -1 / 2 + "px");  
+       };  
+       $(window).resize(function () {
+            init();
+        });
+
+</script>
+</body>
+</html>
