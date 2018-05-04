@@ -1,0 +1,87 @@
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+
+.navbar {
+	margin-bottom: 1px;
+}
+
+.navbar-default {
+	background-color: #fff;
+}
+
+.navbar-default .navbar-brand {
+	color: #777;
+	height: 80px;
+}
+
+.navbar-toggle {
+	margin-top: 23px;
+}
+
+.bg-wht {
+	background-color: #fff !important;
+}
+
+
+/*---------*/
+
+.container h2 {
+	color: red;
+}
+
+
+
+.introduction-row {
+	margin-top: 20px;
+}
+
+.introduction-row p {
+	margin: 0 !important;
+	text-indent: 2em;
+	line-height: 22px;
+}
+
+.introduction-row .btn {
+	margin-top: 10px;
+}
+
+.introduction img {
+	width: 100% !important;
+	height: 100%;
+}
+
+
+/*-------------*/
+
+.synopsis {
+	margin: 10px auto;
+}
+
+.synopsis p {
+	text-indent: 2em;
+}
+
+
+/*----------------*/
+
+.thumbnail {
+	border: 0px;
+	background-color: #eaeaea;
+}
+
+.thumbnail img {
+	border-radius: 50%;
+}
+
+
+/*------------*/
+
+.footer {
+	margin-top: 20px;
+	padding-top: 10px;
+	background-color: #323232;
+	color: white;
+}
