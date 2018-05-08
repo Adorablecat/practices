@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>demo</title>
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	</head>
+	<body>
+		<select id="province"></select>
+		<select id="city"></select>
+		<select id="part"></select>
+	</body>
+	<script>
+		
+		$.ajax({//缺省值绑定， 绑定省级，并依次搜索下一次城市
+			type: "get",
+			dataType: 'jsonp',
+			url: "http://apis.map.qq.com/ws/district/v1/getchildren?&key=55RBZ-JWSHF-EP7JT-NZGLE-YZR7J-JDBEH&output=jsonp",
+			async: true,
+			success: function(data) {
+				var childData = data.result[0];
+				
+				var opHtml = "";
+				for (var i = 0; i < childData.length; i++) {
+					opHtml += '<option class="mylist" value="'+childData[i].fullname+'" data-idx="'+childData[i].id+'">'+childData[i].fullname+'</option>'
+				}
+				$('#province').append(opHtml).attr("data-idx",childData[0].id);
+				getThisChildrenCity(("province"));
+				
+			}
+		});
+		
+		function getThisChildrenCity(id){//根据id搜索下一次城市
+			var thisNode = $("#"+id);
+			var thisNo = $(thisNode).attr("data-idx");
+			$.ajax({
+				type: "get",
+				dataType: 'jsonp',
+				url: "http://apis.map.qq.com/ws/district/v1/getchildren?&key=55RBZ-JWSHF-EP7JT-NZGLE-YZR7J-JDBEH&output=jsonp&id="+thisNo+"",
+				async: true,
+				success: function(data) {
+					console.log(data);
+					var nextData = data.result[0];
+					var nextHtml = "";
+					for (var i = 0; i < nextData.length; i++) {
+						nextHtml += '<option class="mylist" value="'+nextData[i].fullname+'" data-idx="'+nextData[i].id+'">'+nextData[i].fullname+'</option>'
+					}
+					$(thisNode).next("select").find("option").remove();
+					$(thisNode).next("select").append(nextHtml).attr("data-idx",nextData[0].id);
+					var lastNode = $(thisNode).next("select");
+					if($(lastNode).next("select").attr("id")){
+						getThisChildrenCity($(lastNode).attr("id"));
+					}else{
+						return false;
+					}
+				}
+			});
+		}
+		$('select').change(function(){//联动事件
+			var that = $(this);
+			var myVal = $(this).val();
+			for (var q = 0; q < $(this).find("option").length; q++) {
+				if($(this).find("option").eq(q).text() == myVal){
+					$(that).attr("data-idx",$(this).find("option").eq(q).attr("data-idx"));
+					getThisChildrenCity($(that).attr("id"));
+				}
+			}
+		})
+	</script>
+</html>
