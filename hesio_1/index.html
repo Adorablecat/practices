@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=750">
+		<link rel="stylesheet" href="css/comment.css" />
+		<script src="./js/mobile-util.js"></script>
+		<script src="js/imgloader.js"></script>
+		<title>和秀</title>
+		<style>
+			html,body {
+				background-color: #000;
+			}
+			.ab {position:absolute;
+				width:100%;
+				height:100%;
+				top:0;
+				right:0;
+				bottom:0;
+				left:0;
+			}
+			.abt {
+				position: absolute;
+			}
+			.hide {
+				display: none;
+			}
+			/*img {
+				width:100%;
+				height:100%;
+			}*/
+			/*load*/
+			.load {
+				background-color: #000;
+			}
+			.log_kp {
+				width:439px;
+				height:320px;
+				left:50%;
+				top:400px;
+				margin-left: -220px;
+			}
+			/*pg1*/
+			.page1 {
+				width:100%;
+				height:100%;
+				background: url(./img/pg1_bg.png) no-repeat;
+				background-size:100% 100%;
+			}
+			.pg1_ft1 {
+				width:275px;
+				height:35px;
+				top:385px;
+				left:50%;
+				margin-left: -137px;
+				animation: fadeIn 1.2s linear;
+				animation-fill-mode:backwards;
+			}
+			.pg1_ft2 {
+				width:506px;
+				height:34px;
+				top:510px;
+				left:50%;
+				margin-left: -253px;
+				animation: fadeIn 1.2s linear 2s ;
+				animation-fill-mode:backwards;
+			}
+			.pg1_btn {
+				width:174px;
+				height:57px;
+				top:800px;
+				left:50%;
+				margin-left: -87px;
+				animation:puls 1.5s  infinite;
+				animation-fill-mode:both;
+			}
+			
+			.page2 {
+				width:100%;
+				height:100%;
+				background-color: #000;
+			}
+			.pg2_hand {
+				width:100%;
+				bottom:150px;
+				left:0;
+				animation:slideInUp 1.5s linear;
+				animation-fill-mode:both;
+			}
+			.pg2_btn {
+				width:173px;
+				bottom:300px;
+				left:50%;
+				margin-left: -86.5px;
+				animation:puls 1.5s  infinite;
+				animation-fill-mode:both;
+			}
+			@keyframes fadeIn{
+				from{opacity:0;}
+				to{opacity:1;}
+			}
+			@keyframes puls{
+				0%{
+					-webkit-transform:scale3d(1,1,1);
+					transform:scale3d(1,1,1);
+					opacity: 0.9;
+				}
+				50% {
+					-webkit-transform: scale3d(1.2,1.2,1.2);
+					transform: scale3d(1.2,1.2,1.2);
+					opacity: 1;
+				}
+				100% {
+					-webkit-transform: scale3d(1,1,1);
+					transform: scale3d(1,1,1);
+					opacity: 0.9;
+				}
+				
+			}
+			
+			@keyframes slideInUp {
+				0% {
+				-webkit-transform: translate3d(0, 100%, 0);
+				transform: translate3d(0, 100%, 0);
+				visibility: visible;
+				}
+				100% {
+				-webkit-transform: translate3d(0, 0, 0);
+				transform: translate3d(0, 0, 0);
+				}
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="ab load " style="z-index:111;">
+			<img src="./img/kp.gif" alt="" class="abt log_kp"/>
+		</div>
+		<div class="ab page1 hide" style="z-index:122;">
+			<img src="./img/pg1_ft1.png" alt="" class="abt pg1_ft1" />
+			<img src="./img/pg1_ft2.png" alt="" class="abt pg1_ft2" />
+			<img src="./img/pg1_btn.png" alt="" class="abt pg1_btn hide" />
+		</div>
+		<div class="ab page2 hide"style="z-index:133;">
+			<img src="./img/pg2_hand1.png" alt="" class="pg2_hand abt" />
+			<img src="./img/pg2_btn.png" alt="" class="pg2_btn abt hide" />
+		</div>
+		<!-- 选择禁止横屏或竖屏显示-->
+		<div id="orientLayer" class="mod-orient-layer">
+			<div class="mod-orient-layer__content">
+				<i class="icon mod-orient-layer__icon-orient"></i>
+				<div class="mod-orient-layer__desc">为了更好的体验，请使用竖屏浏览</div>
+			</div>
+		</div>
+		<script src="./js/jquery.min.js"></script>
+		<script>
+			$(document).ready(function (){
+				var time = setTimeout(function(){
+					$('.load').hide();
+					console.log("123");
+					$('.page1').show();
+					var time1 = setTimeout(function(){
+						$('.pg1_btn').show();
+					},4000);
+					
+				},2900)
+				$('.pg1_btn').on('touchend',function(){
+					$('.page1').hide();
+					$('.page2').show();
+					var time2 = setTimeout(function(){
+						$('.pg2_btn').show();
+					},1800)
+				})
+			});
+		</script>
+	</body>
+
+</html>
