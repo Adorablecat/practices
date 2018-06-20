@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no, email=no">
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="HandheldFriendly" content="true">
+		<meta name="MobileOptimized" content="320">
+		<meta name="screen-orientation" content="portrait">
+		<meta name="x5-orientation" content="portrait">
+		<meta name="full-screen" content="yes">
+		<meta name="x5-fullscreen" content="true">
+		<title>MMMP </title>
+		<link rel="stylesheet" href="css/common.css" />
+		<style>
+			html,body{
+				width:100%;
+				height:100%
+			}
+			.wrap {
+				position:relative;
+				width:100%;
+				height:100%;
+				left:0;
+				top:0;
+				background-color: #eee
+			}
+			.hide{display: none}
+			.first {
+				position:absolute;
+				width:100%;
+				height:100%;
+				left:0;
+				top:0;
+				z-index:999;
+			}
+			.first .btn {
+				width:14rem;
+				height: 5rem;
+				text-align:center;
+				line-height: 5rem;
+				font-size:2.5rem;
+				border:1px  solid red;
+				border-radius: 2.5rem;
+				position:absolute;
+				bottom:5rem;
+				left:50%;
+				margin-left: -7rem;
+			}
+			.second {
+				position:absolute;
+				width:100%;
+				height:100%;
+				left:0;
+				top:0;
+				z-index:9;
+				
+			}
+			.second .ct{
+				width:6rem;
+				height:6rem;
+				line-height: 6rem;
+				font-size:2rem;
+				color:coral;
+				text-align:center;
+				position:absolute;
+			}
+			.second .ct1 {
+				background-color: gray;
+				top:5rem;
+				left:5rem
+			}
+			.second .ct2 {
+				background-color: gray;
+				bottom:5rem;
+				left:5rem
+			}
+			.second .ct3 {
+				background-color: gray;
+				top:12rem;
+				left:25rem
+			}
+			.second .ct4 {
+				background-color: gray;
+				top:5rem;
+				right:5rem
+			}
+			.second .ct5 {
+				background-color: gray;
+				bottom:5rem;
+				right:5rem
+			}
+			.third {
+				width:100%;
+				height:100%;
+				position:absolute;
+				width:1px;
+				height:1px
+				left:0;
+				top:0;
+				z-index:10;
+				background-color: cadetblue;
+			}
+			.third video {
+				width:100% ;
+				height:100%;
+				position:absolute;
+				top:0;
+				left:0;
+				object-fit: fill;
+			}
+			.final {
+				width:100%;
+				height:100%;
+				position:absolute;
+				top:0;
+				left:0;				
+			}
+			.final p {
+				font-size:10rem;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="first hide">
+				<div class="btn">
+					点击进入
+				</div>
+			</div>
+			<div class="second">
+				<div class="ct1 ct pl">城市1</div>
+				<div class="ct2 ct pl">城市2</div>
+				<div class="ct3 ct ">城市3</div>
+				<div class="ct4 ct pl">城市4</div>
+				<dic class="ct5 ct">城市5</dic>
+			</div>
+			<div class="third">
+				<video id="video1" class="hide" width="100%" height="100%" webkit-playsinline="true" playsinline="true" type="video/mp4" preload="" x5-video-player-type="h5" 
+					src="http://liminglei.top/resoure/jz12.mp4"></video>
+				<video id="video2" class="hide" width="100%" height="100%" webkit-playsinline="true" playsinline="true" type="video/mp4" preload="" x5-video-player-type="h5" 
+				src="http://liminglei.top/resoure/hp2.mp4"></video>
+				<video id="video3" class="hide" width="100%" height="100%" webkit-playsinline="true" playsinline="true" type="video/mp4" preload="" x5-video-player-type="h5" 
+				src="http://liminglei.top/resoure/huawei.mp4"></video>
+				<video id="video4" class="hide" width="100%" height="100%" webkit-playsinline="true" playsinline="true" type="video/mp4" preload="" x5-video-player-type="h5" 
+				src="http://liminglei.top/resoure/ganmaoling.mp4"></video>
+				<video id="video5" class="hide" width="100%" height="100%" webkit-playsinline="true" playsinline="true" type="video/mp4" preload="" x5-video-player-type="h5" 
+				src="http://liminglei.top/resoure/2maoqian.mp4"></video>
+			</div>
+			<div class="final hide">
+				<p>end</p>
+			</div>
+		</div>
+		<script src="js/zepto.min.js"></script>
+		<script src="js/jweixin-1.0.0.js"></script>
+		<script type="text/javascript">
+			var divs = $('.second>div');
+			$(".ct1").on('click',function(){
+				if($(".ct1").hasClass('pl')==0){
+					$(".ct1").addClass('pl');
+					$(".ct1").css({'background-color' : 'cyan'});
+					$('second').hide();
+					$('.third').css({width : '100%',height : '100%'});
+					$('#video1').removeClass('hide');
+					$('#video1')[0].play();
+				}else {
+					console.info('744')
+				}
+				
+			});
+			$('#video1').on('ended',function(){
+				console.info($('.second>div').hasClass("pl"));
+				$('#video1').addClass('hide');
+				$('.third').css({width : 1+'px',height : 1+'px'});
+				if($('.second>div').hasClass("pl")==1){
+					$('.second').hide();
+					$('.final').removeClass('hide');
+				}
+			});
+			$(".ct2").on('click',function(){
+				console.info($('.second>div').hasClass("pl"));
+				if($(".ct2").hasClass('pl')==0){
+					$(".ct2").addClass('pl');
+					$(".ct2").css({'background-color' : 'red'});
+					$('second').hide();
+					$('.third').css({width : '100%',height : '100%'});
+					$('#video2').removeClass('hide');
+					$('#video2')[0].play();
+				} else{
+					console.info('ct2')
+				}
+			})
+			$('#video2').on('ended',function(){
+				console.info($('.second>div').hasClass("pl"));
+				$('#video2').addClass('hide');
+				$('.third').css({width : 1+'px',height : 1+'px'});
+				if($('.second>div').hasClass("pl")==1){
+					$('.second').hide();
+					$('.final').removeClass('hide');
+				}
+			});
+			$(".ct3").on('click',function(){
+				console.info($('.second>div').hasClass("pl"));
+				if($(".ct3").hasClass('pl')==0){
+					$(".ct3").addClass('pl');
+					$(".ct3").css({'background-color' : 'green'});
+					$('second').hide();
+					$('.third').css({width : '100%',height : '100%'});
+					$('#video3').removeClass('hide');
+					$('#video3')[0].play();
+				} else {
+					console.info('ct3')
+				}
+			});
+			$('#video3').on('ended',function(){
+				console.info($('.second>div').hasClass("pl"));
+				$('#video3').addClass('hide');
+				$('.third').css({width : 1+'px',height : 1+'px'});
+				if($('.second>div').hasClass("pl")==1){
+					$('.second').hide();
+					$('.final').removeClass('hide');
+				}
+			});
+			$(".ct4").on('click',function(){
+				console.info($('.second>div').hasClass("pl"));
+				if($(".ct4").hasClass('pl')==0){
+					$(".ct4").addClass('pl');
+					$(".ct4").css({'background-color' : 'yellow'});
+					$('second').hide();
+					$('.third').css({width : '100%',height : '100%'});
+					$('#video4').removeClass('hide');
+					$('#video4')[0].play();
+				}else {
+					console.info('ct4')
+				}
+				});
+			$('#video4').on('ended',function(){
+				$('#video4').addClass('hide');
+				$('.third').css({width : 1+'px',height : 1+'px'});
+				if($('.second>div').hasClass("pl")==1){
+					$('.second').hide();
+					$('.final').removeClass('hide');
+				}
+			});
+			$(".ct5").on('click',function(){
+				console.info($('.second>div').hasClass("pl"));
+				if($(".ct5").hasClass('pl')==0){
+					$(".ct5").addClass('pl');
+					$(".ct5").css({'background-color' : 'white'});
+					$('second').hide();
+					$('.third').css({width : '100%',height : '100%'});
+					$('#video5').removeClass('hide');
+					$('#video5')[0].play();
+				}else {
+					console.info('ct5');
+				}
+			});
+			$('#video5').on('ended',function(){
+				$('#video5').addClass('hide');
+				$('.third').css({width : 1+'px',height : 1+'px'});
+				if($('.second>div').hasClass("pl")==1){
+					$('.second').hide();
+					$('.final').removeClass('hide');
+				}
+			});
+			
+		</script>
+	</body>
+</html>

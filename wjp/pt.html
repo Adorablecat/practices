@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div {
+				width:100px;
+				height:100px;
+				background-color: cyan;
+				margin-top: 20px;
+				font-size:26px;
+				text-align:center;
+				line-height: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<div>深圳</div>
+		<div>无锡</div>
+		
+		<div>郑州
+		</div>
+		<div>太原</div>
+		<script>
+			window.onload = function(){
+				var divs = document.getElementsByTagName('div');
+				for(var i= 0;i<divs.length;i++){
+					divs[i].onclick = function(){
+						for (var j=0 ;j<divs.length;j++){
+							divs[j].index = j;
+							divs[j].style.backgroundColor = "transparent";
+							console.info(this.index)
+						}
+						this.style.backgroundColor = "red";
+					}
+					
+				}
+			}
+		</script>
+	</body>
+</html>

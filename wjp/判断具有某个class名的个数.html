@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+		    <li class="active"></li>
+		    <li class="active"></li>
+		    <li class="active"></li>
+		    <li class=""></li>
+		</ul>
+		
+		<script src="js/zepto.min.js"></script>
+		<script>
+		$(document).ready(function(){
+		    console.info("li的个数：" + $("ul li").length);
+		    console.info("有active的li的个数：" + $("ul li.active").length);
+		});
+		</script>
+	</body>
+</html>

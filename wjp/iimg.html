@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="./js/jquery-2.1.4.min.js"></script>
+	</head>
+	<body>
+		<img class="ct1 ct pl" data_face="images/sz1.png" src="images/sz.png"></img>
+		<img class="ct2 ct pl" data_face="images/zz1.png" src="images/zz.png"></img>
+		<img class="ct3 ct "   data_face="images/wx1.png" src="images/wx.png"></img>
+		<img class="ct4 ct pl" data_face="images/qd1.png" src="images/qd.png"></img>
+		<img class="ct5 ct"    data_face="images/ty1.png" src="images/ty.png"></img>
+		<!--<script>
+			var imgs=$("img[data_face]");
+			    imgs.each(function(num,e){
+			        var _this=$(this);
+			        _this.attr("src",_this.attr("data-face"));
+			    });
+		</script>-->
+		<!--<script>
+			var imgs = document.getElementsByTagName('img');
+			console.info(imgs.length);
+			for (var i = 0;i<imgs.length;i++){
+				var dataFace = $(this).attr("data_face");
+				$(this).attr('src',dataFace);
+			}
+		</script>-->
+		<script>
+			 var img = document.getElementsByTagName('img');
+			  var i = 0;
+			  for(;i<img.length;i++){
+			    var face = img[i].getAttribute('data_face');
+			    img[i].setAttribute('src',face);
+			  }
+		</script>
+	</body>
+	
+</html>

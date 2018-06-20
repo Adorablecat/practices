@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+    window.onload = function() {
+        var nextType = document.getElementById('one').nextSibling;
+        console.info(nextType.nodeType);
+    }
+    </script>
+</head>
+<body>
+    <div id="div">
+        <p id = "one">我是p</p>
+        <span id="two">我是span</span>
+    </div>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no, email=no">
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="HandheldFriendly" content="true">
+		<meta name="MobileOptimized" content="320">
+		<meta name="screen-orientation" content="portrait">
+		<meta name="x5-orientation" content="portrait">
+		<meta name="full-screen" content="yes">
+		<meta name="x5-fullscreen" content="true">
+		<title>MMMP </title>
+		<link rel="stylesheet" href="css/common.css" />
+		<style>
+			html,body{
+				width:100%;
+				height:100%
+			}
+			.wrap {
+				position:relative;
+				width:100%;
+				height:100%;
+				left:0;
+				top:0;
+				background-color: #eee
+			}
+			.hide{display: none}
+			.first {
+				position:absolute;
+				width:100%;
+				height:100%;
+				left:0;
+				top:0;
+				z-index:999;
+			}
+			.first .btn {
+				width:14rem;
+				height: 5rem;
+				text-align:center;
+				line-height: 5rem;
+				font-size:2.5rem;
+				border:1px  solid red;
+				border-radius: 2.5rem;
+				position:absolute;
+				bottom:5rem;
+				left:50%;
+				margin-left: -7rem;
+			}
+			.second {
+				position:absolute;
+				width:100%;
+				height:100%;
+				left:0;
+				top:0;
+				z-index:9;
+				background-color: cyan;
+				
+			}
+			.ct{
+				width:6rem;
+				height:6rem;
+				line-height: 6rem;
+				font-size:2rem;
+				color:coral;
+				text-align:center;
+				position:absolute;
+				background-color: #eee;
+			}
+			.second .ct1 {
+				background:url(./images/sz.png);
+				background-size:100% 100% ;
+				top:5rem;
+				left:5rem
+			}
+			.second .ct2 {
+				background:url(./images/zz.png);
+				background-size:100% 100% ;
+				bottom:5rem;
+				left:5rem
+			}
+			.second .ct3 {
+				background:url(./images/wx.png);
+				background-size:100% 100% ;
+				top:12rem;
+				left:25rem
+			}
+			.second .ct4 {
+				background:url(./images/qd.png);
+				background-size:100% 100% ;
+				top:5rem;
+				right:5rem
+			}
+			.second .ct5 {
+				background:url(./images/ty.png);
+				background-size:100% 100% ;
+				bottom:5rem;
+				right:5rem
+			}
+			.third {
+				width:100%;
+				height:100%;
+				position:absolute;
+				width:1px;
+				height:1px
+				left:0;
+				top:0;
+				z-index:10;
+				background-color: cadetblue;
+			}
+			.third video {
+				width:100% ;
+				height:100%;
+				position:absolute;
+				top:0;
+				left:0;
+				object-fit: fill;
+			}
+			.final {
+				width:100%;
+				height:100%;
+				position:absolute;
+				top:0;
+				left:0;				
+			}
+			.final p {
+				font-size:10rem;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="first hide">
+				<div class="btn">
+					点击进入
+				</div>
+			</div>
+			<div class="second">
+				<div class="ct1 ct pl" date_face="images/sz1.png"></div>
+				<div class="ct2 ct pl" date_face="images/zz1.png"></div>
+				<div class="ct3 ct "   date_face="images/wx1.png"></div>
+				<div class="ct4 ct pl" date_face="images/qd1.png"></div>
+				<div class="ct5 ct"    date_face="images/ty1.png"></div>
+			</div>
+			<div class="third">
+				<video id="video1" class="hide" width="100%" height="100%" webkit-playsinline="true" playsinline="true" type="video/mp4" preload="" x5-video-player-type="h5" 
+					src="http://liminglei.top/resoure/jz12.mp4"></video>
+				<video id="video2" class="hide" width="100%" height="100%" webkit-playsinline="true" playsinline="true" type="video/mp4" preload="" x5-video-player-type="h5" 
+				src="http://liminglei.top/resoure/hp2.mp4"></video>
+				<video id="video3" class="hide" width="100%" height="100%" webkit-playsinline="true" playsinline="true" type="video/mp4" preload="" x5-video-player-type="h5" 
+				src="http://liminglei.top/resoure/huawei.mp4"></video>
+				<video id="video4" class="hide" width="100%" height="100%" webkit-playsinline="true" playsinline="true" type="video/mp4" preload="" x5-video-player-type="h5" 
+				src="http://liminglei.top/resoure/ganmaoling.mp4"></video>
+				<video id="video5" class="hide" width="100%" height="100%" webkit-playsinline="true" playsinline="true" type="video/mp4" preload="" x5-video-player-type="h5" 
+				src="http://liminglei.top/resoure/2maoqian.mp4"></video>
+			</div>
+			<div class="final hide">
+				<p>end</p>
+			</div>
+		</div>
+		<script src="js/zepto.min.js"></script>
+		<script src="js/jweixin-1.0.0.js"></script>
+		<script type="text/javascript">
+			var cts = document.getElementsByClassName('ct');
+			var vds= document.getElementsByTagName('video');
+			var imgs1 = new Array ;
+			imgs1= [
+				'./images/sz.png',
+				'./images/zz.png',
+				'./images/wx.png',
+				'./images/qd.png',
+				'./images/ty.png'
+			]
+			console.info(vds.length);
+			console.info(cts.length)
+//			console.info(divs.length);
+			
+			for(var i =0 ;i<cts.length;i++){
+				cts[i].idx = i;
+				cts[i].onclick = function(){
+					for(var j=0;j<cts.length;j++){
+						
+//						cts[j].style.background= "";
+					}
+					this.style.backgroundImage = this.date_face;
+					console.info(this.idx);
+					console.info(this.date_face)
+				}
+				
+			}
+		</script>
+	</body>
+</html>

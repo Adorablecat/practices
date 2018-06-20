@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head class="node_js">
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="node_js">
+				
+			</div>
+		</div>
+		
+		<script>
+			var hasClass = (function(){
+		    var div = document.createElement("div") ;
+		    if( "classList" in div && typeof div.classList.contains === "function" ) {
+		        return function(elem, className){
+		            return elem.classList.contains(className) ;
+		        } ;
+		    } else {
+		        return function(elem, className){
+		            var classes = elem.className.split(/\s+/) ;
+		            for(var i= 0 ; i < classes.length ; i ++) {
+		                if( classes[i] === className ) {
+		                    return true ;
+		                }
+		            }
+		            return false ;
+		        } ;
+		    }
+		})() ;
+		
+		alert( hasClass(document.documentElement, "node_js") ) ;
+		</script>
+	</body>
+</html>
