@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        var elem = document.createElement('meta');
+        var h = window.screen.width/640;
+        elem.name = 'viewport';
+        elem.content = 'width=device-width,user-scalable=no,initial-scale='+h;
+        document.getElementsByTagName('head')[0].appendChild(elem);
+    </script>
+    <meta charset="utf-8"/>
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,  user-scalable=0;"/>-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>这一天属于你</title>
+    <meta name="description" content=""/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <script>
+        function rem(psd) { var wWidth = window.innerWidth; var fontSize = wWidth > 900 ? 100 : 100*wWidth / psd; document.documentElement.style.fontSize = fontSize + 'px';}
+        rem(640);
+    </script>
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/style.css?v=111">
+</head>
+<body>
+<script>
+    var yearNum = new Date().getFullYear();
+    var monthNum = new Date().getMonth() > 8 ? new Date().getMonth()+1 : "0"+ (new Date().getMonth()+1);
+    var dayNum = new Date().getDate();
+//    var yearNum = 2018,monthNum = "02",dayNum = 16;
+
+    var dateType = 0;// 0默认 1情人节 2春节
+    var itemType = 0;
+    var imgType = 0;// 0清新 1暖阳 2彩虹 3经典 4原图
+    if(yearNum == 2018){if(+monthNum == 2){if(dayNum < 16){dateType = 1;}else{dateType = 2; itemType = 2;}}else if(+monthNum == 3){if(dayNum < 3){ dateType = 2;itemType = 2; }else{ dateType = 0; }}else{dateType = 0;}}else{dateType = 0;}
+    console.log(dateType);
+</script>
+<style>
+.page_border{
+    position: absolute;
+    top: 2.8rem;
+    height: 6.5rem;
+    width: 6.4rem;	
+	z-index: -1;
+}
+</style>
+<div class="loading-wrap">
+    <div class="loading-img">
+        <div class="loading-num">0%</div>
+        <div class="loading-hand"></div>
+    </div>
+</div>
+<div class="main">
+    <!--首页-->
+    <div class="page page1">
+        <!--默认首页-->
+        <div class="page1-item page1-item1">
+            <!--撕页-->
+            <div class="si-wrap">
+                <div class="si-page"></div>
+                <!--logo-->
+                <div class="page1-btn"></div>
+            </div>
+            <!--日历头部-->
+            <div class="si-head"></div>
+            <!--手-->
+            <div class="page1-finger"></div>
+        </div>
+        <!--情人节首页-->
+        <div class="page1-item page1-item2">
+            <!--撕页-->
+            <div class="si-wrap2">
+                <div class="si-page2"></div>
+                <!--狗狗-->
+                <div class="p1i1-dog-wrap">
+                    <div class="p1i1-dog">
+                        <div class="p1i1-dog-heart"></div>
+                    </div>
+                </div>
+            </div>
+            <!--日历头部-->
+            <div class="si-head2"></div>
+        </div>
+        <!--春节首页-->
+        <div class="page1-item page1-item3">
+            <!--撕页-->
+            <div class="si-wrap3">
+                <div class="si-page3"></div>
+            </div>
+            <!--日历头部-->
+            <div class="si-head3"></div>
+        </div>
+    </div>
+	
+    <!--上传图片页-->
+    <div class="page page2">
+        <div class="page2-content">
+            <div class="page2-logo"></div>
+            <!--星期-->
+            <div class="week"><span>Sat</span><hr><span>星期六</span></div>
+            <!--农历-->
+            <div class="date-nong"><span></span><hr><span></span></div>
+            <!--图片及文字选择-->
+            <div class="upload-wrap">
+                <!--图片-->
+                <div class="upload-box">
+                    <!--图片编辑-->
+                    <div class="img-edit">
+                        <canvas id="canvas"></canvas>
+                    </div>
+                    <!--重新上传-->
+                    <div class="reUpload">
+                        <input type="file" class="upload upload2">
+                    </div>
+                    <!--上传-->
+                    <div class="upload-img-wrap">
+                        <input type="file" class="upload">
+                    </div>
+                </div>
+                <!--文字选择-->
+                <div class="swiper-container sf">
+                    <div class="swiper-wrapper"></div>
+                    <div id="left"></div>
+                    <div id="right"></div>
+                </div>
+            </div>
+            <!--阳历-->
+            <!--日-->
+            <div class="date-yang-day"></div>
+            <img class="page_border">
+            <!--年月-->
+            <div class="date-yang-year"><span>2018</span><label>沐熙日历</label></div>
+            <!--日期选择-->
+            <input type="date" class="date-now">
+            <!--滤镜按钮-->
+            <div class="img-type">
+                <div class="img-type-item img-type-item1"></div>
+                <div class="img-type-item img-type-item2"></div>
+                <div class="img-type-item img-type-item3"></div>
+                <div class="img-type-item img-type-item4"></div>
+                <div class="img-type-item img-type-item5"></div>
+            </div>
+            <div class="words_sel">
+            	<span>宜珍惜</span>
+            	<select onchange="$(this).prev().html($(this).val())">
+            		<option>宜珍惜</option>
+            		<option>宜享受</option>
+            		<option>宜合拍</option>
+            		<option>宜炽热</option>
+            	</select>
+            </div>
+            <!--模板按钮-->
+            <div class="item-btn"></div>
+            <!--确认按钮-->
+            <div class="btn-ok"></div>
+            <!--提示按钮-->
+            <div class="titleBtn"></div>
+            <!--模板框-->
+            <div class="item-type-box">
+                <div class="item-type-item item-type-item1">
+                    <div class="item-type-border"></div>
+                </div>
+                <div class="item-type-item item-type-item2">
+                    <div class="item-type-border"></div>
+                </div>
+                <div class="item-type-item item-type-item3">
+                    <div class="item-type-border"></div>
+                </div>
+                <div class="item-type-item item-type-item6">
+                    <div class="item-type-border"></div>
+                </div>
+            </div>
+        </div>
+        <!--生成图片-->
+        <div>
+            <img class="endImg2" alt="">
+        </div>
+        <!--提示-->
+        <div class="page page2-title"></div>
+        <!--长按保存-->
+        <div class="page pagelongtap">
+            <div class="longtap-img"></div>
+        </div>
+        <!--页内loading-->
+        <div class="page img-loading">正在上传...</div>
+    </div>
+
+    <!--第三页-->
+    <div class="page page3">
+        <div class="page3-finger"></div>
+        <!--网易号：https://c.m.163.com/news/sub/T1514445150153.html?spss=newsapp&spssid=6e93b1fdeafbde0371d53d909b9d16c3&spsw=1-->
+        <!--公众号模板：http://mp.weixin.qq.com/mp/homepage?__biz=MzU0MTA0Njc4MQ==&hid=1&sn=31253734d677a3871e058b81f3d415ed#wechat_redirect-->
+        <!--公众号历史：https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzU0MTA0Njc4MQ==&scene=124#wechat_redirect-->
+        <!--网易号-->
+        <a class="h5Btn" href="javascript:;"></a>
+        <!--公众号-->
+        <a class="gzhBtn" href="javascript:;"></a>
+    </div>
+</div>
+<script src="js/common.min.js"></script>
+<script src="js/zepto.min.js"></script>
+<script src="js/swiper.min.js"></script>
+<script src="js/calendar.js"></script>
+<script src="js/lrz.mobile.min.js"></script>
+<script src="js/gesturer.js"></script>
+<script src="js/imgeditor.js"></script>
+<script src="js/screen.js"></script>
+<script src="js/script.js?v=11111111"></script>
+</body>
+</html>

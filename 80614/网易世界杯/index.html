@@ -1,0 +1,124 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>世界杯光阴的故事</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="full-screen" content="true">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="360-fullscreen" content="true">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <style>
+        html, body {
+            -ms-touch-action: none;
+            background: #fff;
+            padding: 0;
+            border: 0;
+            margin: 0;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="__newsapp_shareconfig" style="display: none;">
+        <div id="__newsapp_sharewxurl">
+            https://c.m.163.com/nc/qa/activity/worldcup_time_story/index.html?spssid=ac2bf53bd943ccfc846966774578d533&amp;spsw=1&amp;spss=native
+        </div>
+        <div id="__newsapp_sharewxthumburl">https://c.m.163.com/nc/qa/activity/worldcup_time_story/resource/statics/share-icon.jpg</div>
+        <div id="__newsapp_sharewxtitle">我就不信你没听过这些声音</div>
+        <div id="__newsapp_sharewxtext">听完我感觉自己年轻了十岁。</div>
+        <div id="__newsapp_sharephotourl"></div>
+        <div id="__newsapp_sharetext">我就不信你没听过这些声音 https://c.m.163.com/nc/qa/activity/worldcup_time_story/index.html?spssid=ac2bf53bd943ccfc846966774578d533&amp;spsw=1&amp;spss=native</div>
+    </div>
+    <div style="margin: auto;width: 100%;height: 100%;" class="egret-player"
+         data-entry-class="Main"
+         data-orientation="auto"
+         data-scale-mode="fixedWidth"
+         data-frame-rate="60"
+         data-content-width="750"
+         data-content-height="1206"
+         data-show-paint-rect="false"
+         data-multi-fingered="2"
+         data-show-fps="false" data-show-log="false"
+         data-show-fps-style="x:0,y:0,size:12,textColor:0xffffff,bgAlpha:0.9">
+    </div>
+    <script src="//res.wx.qq.com/open/js/jweixin-1.3.0.js"></script>
+    <script src="//static.ws.126.net/utf8/3g/mf2e/newsapp-share/1.2.0/newsapp-share.min.js"></script>
+    <script>
+        var loadScript = function (list, callback) {
+            var loaded = 0;
+            var loadNext = function () {
+                loadSingleScript(list[loaded], function () {
+                    loaded++;
+                    if (loaded >= list.length) {
+                        callback();
+                    }
+                    else {
+                        loadNext();
+                    }
+                })
+            };
+            loadNext();
+        };
+
+        var loadSingleScript = function (src, callback) {
+            var s = document.createElement('script');
+            s.async = false;
+            s.src = src;
+            s.addEventListener('load', function () {
+                s.parentNode.removeChild(s);
+                s.removeEventListener('load', arguments.callee, false);
+                callback();
+            }, false);
+            document.body.appendChild(s);
+        };
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', './manifest.json?v=' + Math.random(), true);
+        xhr.addEventListener("load", function () {
+            var manifest = JSON.parse(xhr.response);
+            var list = manifest.initial.concat(manifest.game);
+            loadScript(list, function () {
+                /**
+                 * {
+                 * "renderMode":, //Engine rendering mode, "canvas" or "webgl"
+                 * "audioType": 0 //Use the audio type, 0: default, 2: web audio, 3: audio
+                 * "antialias": //Whether the anti-aliasing is enabled in WebGL mode, true: on, false: off, defaults to false
+                 * "calculateCanvasScaleFactor": //a function return canvas scale factor
+                 * }
+                 **/
+                egret.runEgret({ renderMode: "webgl", audioType: 0 });
+            });
+        });
+        xhr.send(null);
+    </script>
+    <script src="//analytics.163.com/ntes.js"></script><script>var _ntes_nacc="mapp";neteaseTracker();</script><script src="//static.ws.126.net/utf8/3g/util/analysis.min.js"></script><script>var _ntes_sps_modelid="worldcup_time_story";neteaseAnalysis({type:"special",modelid:_ntes_sps_modelid,spst:5});</script><script>var _ntes_ant_projectid="NTM-XGR2QK72-11";(function(w,d,s,n) {var f=d.getElementsByTagName(s)[0],k=d.createElement(s);k.async=true;k.src="//static.ws.126.net/utf8/3g/analytics/data1/"+n+".js";f.parentNode.insertBefore(k,f);})(window,document,"script",_ntes_ant_projectid);</script><script>var _hmt=_hmt||[];(function(){var b=document.createElement("script");b.src="//hm.baidu.com/hm.js?7fa45cfaddbf8ba5591da1950285d665";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(b,a)})();</script>
+    <script style="display: none">
+        if (window['NewsappShare']) {
+            setTimeout(function(){
+                 window['NewsappShare'].config({
+                    title: '我就不信你没听过这些声音',
+                    desc: '听完我感觉自己年轻了十岁。',
+                    imgUrl: 'resource/statics/share-icon.jpg',
+                    link: '',
+                    shareDone: function() {
+                        window['NTESAntAnalysis']&&window['NTESAntAnalysis'].sendData({
+                            projectid:window['_ntes_ant_projectid'],  // 项目id 必填项 在传播信息统计平台上生成
+                            val_nm: "share",       // 当前行为时间大类名称 【click/share/download/open etc】
+                            val_act: "sharedone",      // 子类用户行为名称 【open_smartBar】
+                            info: {                   //  扩展字段
+                                modelid:window['_ntes_sps_modelid'],   //  modelid 用来区分子项目名称
+                                title:document.title   //  对应modelid 的项目名称 一般推荐用
+                            }
+                        });
+                    }
+                });
+            },2000)
+        }
+    </script>
+</body>
+</html>
