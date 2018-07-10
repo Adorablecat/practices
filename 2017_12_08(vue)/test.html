@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=640">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no, email=no">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="HandheldFriendly" content="true">
+<meta name="MobileOptimized" content="320">
+<meta name="screen-orientation" content="portrait">
+<meta name="x5-orientation" content="portrait">
+<meta name="full-screen" content="yes">
+<meta name="x5-fullscreen" content="true">
+<link rel="stylesheet" href="css/css1.css">
+<script src="js/mobile-util.js"></script>
+<script>
+			var _hmt = _hmt || [];
+			(function() {
+			  var hm = document.createElement("script");
+			  hm.src = "https://hm.baidu.com/hm.js?53bb82dc1bad0f16c806d527fcefb662";
+			  var s = document.getElementsByTagName("script")[0]; 
+			  s.parentNode.insertBefore(hm, s);
+			})();
+		</script>
+<title>很爱很爱你</title>
+</head>
+<body>
+<div class="page" id="app">
+<div class="page page-box animated fadeIn" id="pageBox">
+<div class="page page-load animated" :class="{'fadeOut' : showPlay}" id="pageLoad">
+<div class="cell">
+<img src="./images/ttv1.png" class="ttv"/>
+<img src="./images/ttv2.png" class="none"/>
+<img src="./images/ttv3.png" class="none"/>
+<div class="progress">
+<em>正在搜索:</em><span class="num" v-text="loadNum">0</span><span>%</span>
+</div>
+</div>
+</div>
+<div class="page page1 animated fadeIn" v-cloak :class="{'fadeOut' : showVideo}" v-show="showPlay" id="showPlay" ptag="38574.26.41">
+<img src="images/hello_lee.png" class="ab font1">
+<img src="images/people.gif" class="ab people">
+<div class="ab hand">
+<img src="./images/play.png" class="ab btn-play" @click="goVideo">
+</div>
+</div>
+<div class="page animated page2" v-cloak :class="{'fadeIn' : showVideo && !showJump, 'fadeOut' : showJump}" v-show="showVideo">
+<video class="ab video" poster="./images/poster.png" id="video_1" x-webkit-airplay="true" playsinline="" preload="auto" poster="" x5-video-player-type="h5" x5-video-player-fullscreen="true">
+<source src="http://1118.mayinongchang.net/mov/2017_12_08.mp4"/>
+</video>
+<span ptag="38574.26.42" class="ab jump" @click="jumpVideo">跳过</span>
+</div>
+<div class="page page3 animated fadeIn" v-cloak v-show="showJump">
+<img src="images/ms_logo.png" class="ab ms_logo" />
+<img src="images/nice.png" class="ab nice" />
+<img ptag="38574.26.43" src="images/share_btn.png" class="ab share_btn" @click="showShare=true">
+<img src="images/again.png" class="ab again" @click="goJump2">
+</div>
+<div class="page fullscreen animated" v-cloak v-show="showShare" @click.stop="showShare = false"></div>
+<img :src="'//liminglei.top/images/' + (h > w ? 'share_portrait.png' : 'share.png')" v-cloak v-show="showShare" class="ab animated shareimg" :class="{'fadeIn' : showShare, 'shareimg-zhuan' : h > w}" @click.stop="showShare = false"/>
+</div>
+</div>
+<script src="js/vue.min.js"></script>
+<script src="js/zepto.min.js"></script>
+<script src="js/main1.js"></script>
+<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script>
+			var reback;
+			$(document).ready(function () {
+			    $.getJSON("http://api.mayinongchang.net/Index/wx_share2", function (data) {
+			        reback = data.datas;
+			        wx.config({
+			            debug: true,
+			            appId: reback.appId,
+			            timestamp: reback.timestamp,
+			            nonceStr: reback.nonceStr,
+			            signature: reback.signature,
+			            jsApiList: [
+			                'onMenuShareTimeline',
+			                'onMenuShareAppMessage'
+			            ]
+			        });
+			    })
+			    wx.ready(function () {
+			        wx.checkJsApi({
+			            jsApiList: ['onMenuShareAppMessage', 'onMenuShareTimeline'], // 需要检测的JS接口列表，所有JS接口列表见附录2,
+			            success: function (res) {
+			                // 以键值对的形式返回，可用的api值true，不可用为false
+			                // 如：{"checkResult":{"chooseImage":true},"errMsg":"checkJsApi:ok"}
+			            }
+			        });
+			        wx.onMenuShareAppMessage({
+			            title: '你好，李翠橙。', // 分享标题
+			            desc: '你的念念不忘，能跨越千山万水，带我回家。', // 分享描述
+			            link: 'http://1118.mayinongchang.net/2017_12_08/index.html', // 分享链接
+			            imgUrl: 'http://1118.mayinongchang.net/2017_12_08/images/1208.jpg', // 分享图标
+			            type: '', // 分享类型,music、video或link，不填默认为link
+			            dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+			            success: function () {
+			            },
+			            cancel: function () {
+			                // 用户取消分享后执行的回调函数
+			            }
+			        });
+			        wx.onMenuShareTimeline({
+			            title: '你的念念不忘，能跨越千山万水，带我回家。', // 分享标题
+			            desc: '你的念念不忘，能跨越千山万水，带我回家。', // 分享描述
+			            link: 'http://1118.mayinongchang.net/2017_12_08/index.html', // 分享链接
+			            imgUrl: 'http://1118.mayinongchang.net/2017_12_08/images/1208.jpg', // 分享图标
+			            success: function () {
+			            },
+			            cancel: function () {
+			            }
+			        });
+			        // config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready函数中。
+			    });
+			})
+		</script>
+</body>
+</html>
